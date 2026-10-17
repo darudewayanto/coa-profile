@@ -1,0 +1,50 @@
+---
+import { doodleImg } from "../lib/assets";
+import { Image } from "astro:assets";
+import Icon from "./Icon.astro";
+import Doodle from "./Doodle.astro";
+import { joinMovement, wa } from "../data/site";
+interface Props { title?: string }
+const { title = "Join the <span class='brush'>Movement</span>" } = Astro.props;
+---
+<section class="join section bg-grad on-dark">
+  <Doodle kind="loop" class="d1" color="var(--sun)" width={220} />
+  <Doodle kind="spark" class="d2" color="#fff" width={70} />
+  <div class="wrap">
+    <div class="head" data-reveal>
+      <span class="eyebrow">Bergabung bersama COA</span>
+      <h2 class="h-lg" set:html={title} />
+      <p class="lead">Membangun generasi muda yang agile adalah kerja bersama. Pilih peran Anda dalam gerakan ini.</p>
+    </div>
+    <div class="cards">
+      {joinMovement.map((j, i) => (
+        <article class="card" data-reveal style={`transition-delay:${i * 90}ms`}>
+          <Image src={doodleImg[j.icon]} alt="" width={72} densities={[1, 2]} class="ic" />
+          <h3 class="h-sm">{j.who}</h3>
+          <p>{j.text}</p>
+          <a class="btn btn-sun" href={wa(j.topic)} target="_blank" rel="noopener">{j.cta} <Icon name="arrow-right" size={18} /></a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .join { overflow: hidden; }
+  .head { text-align: center; display: grid; justify-items: center; gap: 1rem; margin-bottom: 3rem; }
+  .cards { display: grid; gap: 1.2rem; }
+  .card {
+    display: grid; gap: 0.9rem; align-content: start;
+    padding: 2rem 1.6rem;
+    border-radius: 18px;
+    background: rgba(23, 10, 74, 0.32);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+  }
+  .card p { color: rgba(255, 255, 255, 0.82); flex: 1; }
+  .card .btn { justify-self: start; margin-top: 0.4rem; }
+  .card :global(.ic) { width: 64px; height: 64px; object-fit: contain; }
+  .join :global(.d1) { left: -40px; top: 40px; opacity: 0.8; }
+  .join :global(.d2) { right: 6%; bottom: 40px; }
+  @media (min-width: 860px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+</style>

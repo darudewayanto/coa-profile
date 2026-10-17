@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import { accredImg } from "../lib/assets";
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+const logos = [
+  { file: "cce", alt: "ICF Continuing Coach Education (CCE)", h: 96 },
+  { file: "mind", alt: "MyBrain MiND", h: 70 },
+  { file: "icf", alt: "International Coaching Federation", h: 46 },
+  { file: "icagile", alt: "ICAgile — International Consortium for Agile", h: 54 },
+  { file: "mybrain", alt: "MyBrain International", h: 46 },
+];
+---
+<div class:list={["accred", { compact }]}>
+  {logos.map((l) => <Image src={accredImg[l.file]} alt={l.alt} height={l.h} densities={[1, 2]} style={`height:${l.h}px`} />)}
+</div>
+
+<style>
+  .accred { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.4rem 2.4rem; }
+  .accred :global(img) { width: auto; max-width: 100%; object-fit: contain; }
+  .compact { gap: 1rem 1.8rem; }
+  .compact :global(img) { transform: scale(0.8); }
+</style>

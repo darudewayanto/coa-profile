@@ -1,0 +1,95 @@
+---
+import { u } from "../lib/url";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFab from "../components/WhatsAppFab.astro";
+import { site } from "../data/site";
+
+interface Props { title?: string; description?: string; overlayHeader?: boolean }
+const { title, description = site.description, overlayHeader = false } = Astro.props;
+const fullTitle = title ? `${title} · Center of Agility` : `Center of Agility (COA) — ${site.tagline}`;
+const siteUrl = Astro.site ?? new URL(site.url);
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = new URL(u("/og.jpg"), siteUrl).href;
+// Temporary hosts build with PUBLIC_NOINDEX=true so search engines skip them.
+const noindex = import.meta.env.PUBLIC_NOINDEX === "true";
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="theme-color" content="#170a4a" />
+    <link rel="icon" type="image/png" href={u("/favicon.png")} />
+    <link rel="apple-touch-icon" href={u("/apple-touch-icon.png")} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Center of Agility" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Serif+Display:ital@0;1&family=Open+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline>document.documentElement.classList.add("js");</script>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      name: "Center of Agility (COA)",
+      alternateName: "COA on Campus",
+      description: site.description,
+      url: new URL(u("/"), siteUrl).href,
+      email: site.email,
+      telephone: site.phoneDisplay,
+      sameAs: [site.instagram],
+      parentOrganization: { "@type": "Organization", name: "HADE — The Center of Agile Learning", url: site.hadeUrl },
+      areaServed: "Indonesia",
+      inLanguage: "id",
+    })} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+    <Header overlay={overlayHeader} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFab />
+
+    <script>
+      // Fade sections in and draw doodles as they enter the viewport.
+      // "?static" shows everything at once (used for full-page review screenshots).
+      const isStatic = location.search.includes("static");
+      if (isStatic) document.documentElement.classList.remove("js");
+      const motion = !isStatic && !matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (motion) document.querySelectorAll<SVGPathElement>(".doodle path").forEach((p) => {
+        const len = Math.ceil(p.getTotalLength()) + 2;
+        p.style.strokeDasharray = `${len}`;
+        p.style.strokeDashoffset = `${len}`;
+      });
+      const io = new IntersectionObserver(
+        (entries) => entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          if (e.target.matches("[data-reveal]")) e.target.classList.add("in");
+          else e.target.querySelectorAll<SVGPathElement>("path").forEach((p) => (p.style.strokeDashoffset = "0"));
+          io.unobserve(e.target);
+        }),
+        { rootMargin: "0px 0px -40px 0px", threshold: 0.01 },
+      );
+      document.querySelectorAll("[data-reveal], .doodle").forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

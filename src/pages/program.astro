@@ -1,0 +1,139 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Duo from "../components/Duo.astro";
+import Doodle from "../components/Doodle.astro";
+import Icon from "../components/Icon.astro";
+import JoinMovement from "../components/JoinMovement.astro";
+import { u } from "../lib/url";
+import { doodleImg } from "../lib/assets";
+import dutaPoster from "../assets/deck/duta-agility.png";
+import certPoster from "../assets/deck/agile-certification.png";
+import { programs, pillars, dutaAgility, wa } from "../data/site";
+
+const photos = ["dsc05857", "dsc01514", "dsc02053", "dsc05736"];
+const tones = ["violet", "sun", "pink", "violet"] as const;
+---
+<Base title="Program" description="Empat program Center of Agility: Agile Seminar, Workshop & 1on1 Coaching; Agile Coaching Certification; Agile Research Center; dan Agile Talent Center — plus signature program Duta Agility.">
+  <PageHero
+    eyebrow="Program & Activities"
+    title="Program yang <span class='brush'>menggerakkan</span> kampus"
+    lead="Dari workshop pertama sampai talenta siap kerja: empat program COA saling menyambung untuk mahasiswa, dosen, peneliti, dan industri."
+    photo="dsc00506"
+    alt="Mahasiswa dan dosen berfoto bersama di acara COA"
+    tone="violet"
+  />
+
+  <section class="pillars section bg-cream">
+    <div class="wrap pl">
+      <div data-reveal>
+        <span class="eyebrow">3 Program Pillar</span>
+        <h2 class="h-md">Semua program berdiri di atas tiga pilar.</h2>
+      </div>
+      <ul class="pl-list">
+        {pillars.map((p) => (
+          <li data-reveal>
+            <span class="pl-ic"><Image src={doodleImg[p.icon]} alt="" width={44} densities={[1, 2]} /></span>
+            <div><h3>{p.name}</h3><p>{p.text}</p></div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  {programs.map((p, i) => (
+    <section class:list={["prog", i % 2 ? "bg-white" : "bg-paper", { flip: i % 2 }]} id={p.slug}>
+      <div class="prog-photo">
+        <Duo file={photos[i]} alt="" tone={tones[i]} sizes="(min-width: 960px) 50vw, 100vw" />
+        <span class="big-no">{p.no}</span>
+        <Doodle kind={i % 2 ? "star" : "loop"} class="pd" color={i % 2 ? "var(--violet)" : "var(--pink)"} width={i % 2 ? 70 : 220} />
+      </div>
+      <div class="prog-body" data-reveal>
+        <span class="eyebrow">Program {p.no}</span>
+        <h2 class="h-md">{p.name}</h2>
+        <p class="lead">{p.short}</p>
+        <ul class="ticks">
+          {p.points.map((pt) => <li><Icon name="check" size={18} /> <span>{pt}</span></li>)}
+        </ul>
+        <a class="btn btn-violet" href={wa(p.cta)} target="_blank" rel="noopener">Diskusikan Program Ini <Icon name="arrow-right" size={18} /></a>
+      </div>
+    </section>
+  ))}
+
+  <section class="duta section bg-night on-dark" id="duta-agility">
+    <Doodle kind="squiggle" class="dd1" color="var(--sun)" width={170} />
+    <Doodle kind="burst" class="dd2" color="var(--pink)" width={90} />
+    <div class="wrap">
+      <div class="duta-head" data-reveal>
+        <span class="eyebrow">Signature Program</span>
+        <h2 class="h-lg">Duta <span class="brush">Agility</span></h2>
+        <p class="lead">Program kepemimpinan untuk mahasiswa terpilih: belajar, berproyek, melayani, lalu berkompetisi — dari tingkat kampus, regional, hingga nasional.</p>
+      </div>
+      <div class="duta-grid">
+        <figure data-reveal><Image src={dutaPoster} alt="Welcome to Duta Agility" widths={[600, 1200]} sizes="(min-width: 900px) 50vw, 100vw" quality={92} /></figure>
+        <ol class="steps" data-reveal>
+          {dutaAgility.activities.map((a, i) => (
+            <li><span>{String(i + 1).padStart(2, "0")}</span>{a}</li>
+          ))}
+        </ol>
+      </div>
+      <div class="cert" data-reveal>
+        <figure><Image src={certPoster} alt="Agile Certification — International Certification & Micro-Credential" widths={[600, 1158]} sizes="(min-width: 900px) 40vw, 100vw" quality={92} /></figure>
+        <div>
+          <h3 class="h-sm">Lulus dengan micro-credential berstandar internasional</h3>
+          <p>Setiap Duta Agility menempuh jalur Micro-Credential COA Level 1–5 — terakreditasi internasional oleh ICF & MyBrain.</p>
+          <a class="btn btn-sun" href={u("/micro-credential")}>Lihat Kurikulum</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <JoinMovement />
+</Base>
+
+<style>
+  .bg-paper { background: var(--paper); }
+  .pl { display: grid; gap: 2.5rem; }
+  .pl-list { display: grid; gap: 1.5rem; }
+  .pl-list li { display: flex; gap: 1.1rem; align-items: flex-start; }
+  .pl-list h3 { font-size: 1.4rem; margin-bottom: 0.25rem; }
+  .pl-list p { color: var(--ink-soft); }
+  .pl-ic { flex: none; display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: var(--grad); }
+  .pl-ic :global(img) { width: 36px; height: 36px; object-fit: contain; }
+  @media (min-width: 960px) { .pl { grid-template-columns: 0.8fr 1.2fr; gap: 5rem; } }
+
+  .prog { display: grid; }
+  .prog-photo { position: relative; min-height: 340px; overflow: hidden; }
+  .prog-photo :global(.duo) { position: absolute; inset: 0; }
+  .big-no { position: absolute; left: 1.5rem; bottom: -1.5rem; font-family: var(--serif); font-size: clamp(8rem, 18vw, 15rem); line-height: 1; color: #fff; mix-blend-mode: overlay; opacity: 0.9; }
+  .prog-photo :global(.pd) { right: 10%; top: 12%; }
+  .prog-body { padding: clamp(3rem, 7vw, 6rem) clamp(1.25rem, 6vw, 5rem); display: grid; gap: 1.1rem; align-content: center; }
+  .prog-body .btn { justify-self: start; margin-top: 0.6rem; }
+  .ticks { display: grid; gap: 0.7rem; }
+  .ticks li { display: flex; gap: 0.7rem; align-items: flex-start; }
+  .ticks :global(svg) { flex: none; margin-top: 0.25rem; color: #fff; background: var(--magenta); border-radius: 50%; padding: 3px; width: 22px; height: 22px; }
+  @media (min-width: 960px) {
+    .prog { grid-template-columns: 1fr 1fr; min-height: 560px; }
+    .flip .prog-photo { order: 2; }
+  }
+
+  .duta { overflow: hidden; }
+  .duta :global(.dd1) { right: 5%; top: 3rem; }
+  .duta :global(.dd2) { left: 3%; bottom: 4rem; }
+  .duta-head { display: grid; gap: 1rem; max-width: 760px; margin-bottom: 3rem; }
+  .duta-grid { display: grid; gap: 2.5rem; align-items: center; }
+  figure { margin: 0; }
+  .duta-grid figure :global(img), .cert figure :global(img) { border-radius: 16px; width: 100%; box-shadow: 0 30px 70px -40px rgba(0, 0, 0, 0.8); }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+  .steps li { display: flex; align-items: center; gap: 1rem; padding: 0.95rem 1.2rem; border-radius: 12px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.12); font-family: var(--serif); font-size: 1.3rem; }
+  .steps span { font-family: var(--sans); font-size: 0.8rem; font-weight: 800; color: var(--sun); letter-spacing: 0.1em; }
+  .cert { margin-top: 4rem; display: grid; gap: 2rem; align-items: center; padding: clamp(1.4rem, 3vw, 2.4rem); border-radius: 20px; background: var(--grad); }
+  .cert div { display: grid; gap: 1rem; }
+  .cert .btn { justify-self: start; }
+  .cert p { color: rgba(255, 255, 255, 0.86); }
+  @media (min-width: 900px) {
+    .duta-grid { grid-template-columns: 1.15fr 1fr; gap: 4rem; }
+    .cert { grid-template-columns: 0.9fr 1.1fr; gap: 3rem; }
+  }
+</style>

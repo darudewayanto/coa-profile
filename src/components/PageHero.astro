@@ -1,0 +1,28 @@
+---
+import Duo from "./Duo.astro";
+import Doodle from "./Doodle.astro";
+interface Props { eyebrow: string; title: string; lead?: string; photo: string; tone?: "violet" | "sun" | "pink"; position?: string; alt: string }
+const { eyebrow, title, lead, photo, tone = "violet", position = "center", alt } = Astro.props;
+---
+<section class="page-hero on-dark">
+  <Duo file={photo} alt={alt} tone={tone} class="bg" eager position={position} />
+  <div class="shade"></div>
+  <div class="wrap inner">
+    <span class="eyebrow">{eyebrow}</span>
+    <h1 class="h-xl" set:html={title} />
+    {lead && <p class="lead">{lead}</p>}
+    <slot />
+  </div>
+  <Doodle kind="star" class="d1" color="var(--sun)" width={54} />
+  <Doodle kind="squiggle" class="d2" color="var(--pink)" width={160} />
+</section>
+
+<style>
+  .page-hero { position: relative; min-height: clamp(460px, 64vh, 640px); display: grid; align-items: end; overflow: hidden; }
+  .page-hero :global(.bg) { position: absolute; inset: 0; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23, 10, 74, 0.25) 0%, rgba(23, 10, 74, 0.35) 45%, rgba(23, 10, 74, 0.92) 100%); }
+  .inner { position: relative; padding: 9rem 0 4rem; display: grid; gap: 1.2rem; }
+  .inner h1 { max-width: 16ch; text-shadow: 0 2px 24px rgba(23, 10, 74, 0.35); }
+  .page-hero :global(.d1) { top: 22%; right: 9%; }
+  .page-hero :global(.d2) { bottom: 12%; right: 6%; }
+</style>

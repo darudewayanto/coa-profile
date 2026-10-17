@@ -1,0 +1,308 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import Duo from "../components/Duo.astro";
+import Doodle from "../components/Doodle.astro";
+import Sketch from "../components/Sketch.astro";
+import Icon from "../components/Icon.astro";
+import Gallery from "../components/Gallery.astro";
+import PartnerWall from "../components/PartnerWall.astro";
+import JoinMovement from "../components/JoinMovement.astro";
+import Accreditation from "../components/Accreditation.astro";
+import { u } from "../lib/url";
+import { doodleImg } from "../lib/assets";
+import dutaPoster from "../assets/deck/duta-agility.png";
+import { stats, youthFacts, programs, pillars, levels, wa } from "../data/site";
+---
+<Base overlayHeader>
+  <!-- HERO: full-bleed duotone crowd, big serif headline with brush word (reference layout) -->
+  <section class="hero on-dark">
+    <Duo file="dsc05853" alt="Ratusan mahasiswa mengikuti sesi Center of Agility" tone="violet" class="bg" eager position="center 40%" />
+    <div class="shade"></div>
+    <Doodle kind="loop" class="h-d1" color="var(--pink)" width={300} />
+    <Doodle kind="star" class="h-d2" color="var(--sun)" width={64} />
+    <Doodle kind="spark" class="h-d3" color="var(--sun)" width={84} />
+    <Doodle kind="arrow" class="h-d4" color="var(--pink)" width={130} />
+    <span class="hand h-note h-note-1">agility = mindset × practice</span>
+    <span class="hand h-note h-note-2">Level 1 → 5 ✦</span>
+
+    <div class="wrap hero-inner">
+      <p class="kicker">Center of Agility · On Campus</p>
+      <h1 class="h-xl">Empowering <span class="brush">Agile</span><br />Young Leaders</h1>
+      <p class="sub">Membangun agility, resiliensi, dan agile mindset generasi muda Indonesia — langsung dari kampus.</p>
+      <div class="hero-cta">
+        <a class="btn btn-sun" href={u("/micro-credential")}>Ikut Micro-Credential</a>
+        <a class="btn btn-ghost" href={u("/kemitraan")}>Untuk Kampus</a>
+      </div>
+      <a href="#cerita" class="down" aria-label="Gulir ke bawah">
+        <svg width="22" height="44" viewBox="0 0 22 44" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 2v38M3 32l8 9 8-9"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- STATS BAND: solid colour block with big serif numbers (reference "46 / 4 / 10") -->
+  <section class="stats section bg-magenta on-dark" id="cerita">
+    <Doodle kind="zigzag" class="s-d1" color="var(--sun)" width={150} />
+    <Sketch name="star" class="s-d2" color="rgba(255,255,255,.85)" width={90} />
+    <div class="wrap">
+      <ul class="numbers">
+        {stats.map((s) => (
+          <li data-reveal>
+            <strong>{s.value}</strong>
+            <span>{s.label}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="story" data-reveal>
+        Center of Agility (COA) membuka pintu bagi mahasiswa untuk bertumbuh menjadi pemimpin muda yang tangguh.
+        Kami bekerja langsung di kampus lewat workshop, micro-credential berjenjang, dan 1on1 coaching oleh professional agile coach —
+        dengan akreditasi internasional dari ICF & MyBrain.
+      </p>
+      <div class="center" data-reveal><a class="btn btn-sun" href={u("/tentang")}>Cerita Kami</a></div>
+    </div>
+  </section>
+
+  <!-- WHY: the problem COA answers -->
+  <section class="why section bg-cream">
+    <div class="wrap why-grid">
+      <div class="why-quote" data-reveal>
+        <span class="eyebrow">Kenapa COA hadir</span>
+        <p class="big-num"><span>1</span><small>dari</small><span>3</span></p>
+        <blockquote>“{youthFacts.quote}”</blockquote>
+        <cite>— {youthFacts.source}</cite>
+      </div>
+      <div class="why-list" data-reveal>
+        <h2 class="h-md">Apa kata <span class="brush pink">industri</span> tentang generasi muda?</h2>
+        <ul>
+          {youthFacts.industry.map((t) => (
+            <li><span class="x" aria-hidden="true">✕</span>{t}</li>
+          ))}
+        </ul>
+        <p class="hand answer">…COA hadir untuk mengubah cerita ini. <Sketch name="arrow" color="var(--violet)" width={90} class="inline-sketch" /></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMS: dark section, yellow duotone photo with hand-drawn marks (reference "Programs") -->
+  <section class="programs bg-night on-dark">
+    <div class="prog-photo">
+      <Duo file="dsc00431" alt="Mahasiswa berbagi refleksi di workshop COA" tone="sun" sizes="(min-width: 980px) 45vw, 100vw" position="center" />
+      <Doodle kind="loop" class="p-d1" color="var(--pink)" width={260} />
+      <Doodle kind="burst" class="p-d2" color="var(--pink)" width={90} />
+      <span class="hand p-note p-note-1">anti-fragile!</span>
+      <span class="hand p-note p-note-2">kill the ANTs ✕</span>
+      <Sketch name="stickman" class="p-stick" color="var(--pink)" width={120} />
+    </div>
+    <div class="prog-body">
+      <span class="eyebrow">Program & Activities</span>
+      <h2 class="h-lg"><span class="brush">Programs</span></h2>
+      <ul class="prog-list">
+        {programs.map((p) => (
+          <li data-reveal>
+            <h3>{p.name}</h3>
+            <p>{p.short}</p>
+          </li>
+        ))}
+      </ul>
+      <a class="btn btn-pink" href={u("/program")}>Lihat Detail Program</a>
+      <span class="hand p-math">Δ change = (D × V × F) &gt; R</span>
+    </div>
+  </section>
+
+  <!-- MICRO-CREDENTIAL JOURNEY: 5-level staircase -->
+  <section class="journey section bg-paper">
+    <div class="wrap">
+      <div class="j-head" data-reveal>
+        <span class="eyebrow">COA Micro-Credential</span>
+        <h2 class="h-lg">Lima level menuju <span class="brush">Agile Leader</span></h2>
+        <p class="lead">Program berjenjang dengan tiga jalur di setiap level: <b>Learning</b>, <b>Project & Simulation</b>, dan <b>1on1 Agile Coaching</b>. Puncaknya: kompetisi Duta Agility tingkat kampus, regional, dan nasional.</p>
+      </div>
+      <ol class="stairs">
+        {levels.map((l, i) => (
+          <li data-reveal style={`--i:${i}`}>
+            <a href={u(`/micro-credential#level-${l.level}`)}>
+              <span class="lv">Level {l.level}</span>
+              <strong>{l.name}</strong>
+              <small>{l.tagline}</small>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <div class="j-foot" data-reveal>
+        <div class="acc-label">
+          <span class="hand">Accredited internationally by ICF & MyBrain</span>
+        </div>
+        <Accreditation compact />
+        <div class="j-cta">
+          <a class="btn btn-violet" href={u("/micro-credential")}>Pelajari Kurikulum</a>
+          <a class="btn btn-wa" href={wa("student")} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Daftar Batch Berikutnya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE: Duta Agility -->
+  <section class="duta section bg-violet on-dark">
+    <Doodle kind="squiggle" class="d-d1" color="var(--sun)" width={180} />
+    <div class="wrap duta-grid">
+      <div class="duta-img" data-reveal>
+        <Image src={dutaPoster} alt="Welcome to Duta Agility" widths={[600, 1200]} sizes="(min-width: 900px) 50vw, 100vw" quality={92} />
+        <Doodle kind="star" class="d-star" color="var(--sun)" width={60} />
+      </div>
+      <div class="duta-body" data-reveal>
+        <span class="eyebrow">Signature Program</span>
+        <h2 class="h-lg">Duta <span class="brush pink">Agility</span></h2>
+        <p class="lead">Mahasiswa terbaik menjadi duta agility di kampusnya — memimpin aksi nyata, menginspirasi teman sebaya, dan bertanding hingga tingkat nasional.</p>
+        <ul class="chips">
+          {["Active Workshop", "Project Simulation", "Social Humanity Project", "Leader’s Experience", "Micro-Credential", "Competition"].map((c) => <li>{c}</li>)}
+        </ul>
+        <a class="btn btn-sun" href={u("/program#duta-agility")}>Tentang Duta Agility</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 PILLARS -->
+  <section class="pillars section bg-cream">
+    <div class="wrap">
+      <div class="pl-head" data-reveal>
+        <span class="eyebrow">3 Program Pillar</span>
+        <h2 class="h-lg">Learning. Collaborating. <span class="brush">Leveraging.</span></h2>
+      </div>
+      <div class="pl-grid">
+        {pillars.map((p, i) => (
+          <article data-reveal style={`transition-delay:${i * 90}ms`}>
+            <span class="pl-ic"><Image src={doodleImg[p.icon]} alt="" width={64} densities={[1, 2]} /></span>
+            <h3 class="h-sm">{p.name}</h3>
+            <p>{p.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Gallery limit={7} />
+  <PartnerWall />
+  <JoinMovement />
+</Base>
+
+<style>
+  /* HERO */
+  .hero { position: relative; min-height: min(100svh, 940px); display: grid; place-items: center; overflow: hidden; text-align: center; }
+  .hero :global(.bg) { position: absolute; inset: 0; }
+  .shade { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(23, 10, 74, 0.15) 0%, rgba(23, 10, 74, 0.55) 75%), linear-gradient(180deg, rgba(23, 10, 74, 0.55) 0%, transparent 25%); }
+  .hero-inner { position: relative; display: grid; justify-items: center; gap: 1.3rem; padding: 7rem 0 5rem; }
+  .kicker { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sun); }
+  .hero h1 { text-shadow: 0 4px 30px rgba(23, 10, 74, 0.45); }
+  .hero .brush { --brush: var(--sun); color: var(--night); text-shadow: none; }
+  .sub { font-size: clamp(1.05rem, 1.6vw, 1.3rem); max-width: 44ch; font-weight: 500; text-shadow: 0 2px 14px rgba(23, 10, 74, 0.6); }
+  .hero-cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 0.6rem; }
+  .down { margin-top: 1.6rem; color: #fff; animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(8px); } }
+  .hero :global(.h-d1) { left: 4%; top: 18%; transform: rotate(-12deg); }
+  .hero :global(.h-d2) { right: 12%; top: 20%; }
+  .hero :global(.h-d3) { left: 10%; bottom: 14%; }
+  .hero :global(.h-d4) { right: 8%; bottom: 18%; transform: scaleX(-1) rotate(10deg); }
+  .h-note { position: absolute; font-size: clamp(1.2rem, 2vw, 1.7rem); color: #fff; opacity: 0.9; }
+  .h-note-1 { right: 6%; top: 34%; transform: rotate(-6deg); color: var(--sun); }
+  .h-note-2 { left: 6%; bottom: 26%; transform: rotate(5deg); }
+  @media (max-width: 720px) {
+    .h-note, .hero :global(.h-d1), .hero :global(.h-d4) { display: none; }
+  }
+
+  /* STATS */
+  .stats { overflow: hidden; text-align: center; }
+  .numbers { display: grid; gap: 2rem; grid-template-columns: repeat(3, 1fr); max-width: 860px; margin: 0 auto 3rem; }
+  .numbers strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 8vw, 6rem); line-height: 1; }
+  .numbers span { display: block; white-space: pre-line; font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.15; color: var(--cream); margin-top: 0.4rem; }
+  .story { max-width: 60ch; margin: 0 auto; color: rgba(255, 255, 255, 0.88); }
+  .center { margin-top: 2rem; }
+  .stats :global(.s-d1) { left: 5%; top: 3rem; }
+  .stats :global(.s-d2) { position: absolute; right: 6%; bottom: 2.5rem; transform: rotate(14deg); }
+
+  /* WHY */
+  .why-grid { display: grid; gap: 3rem; align-items: center; }
+  .why-quote { display: grid; gap: 1rem; }
+  .big-num { display: flex; align-items: baseline; gap: 0.6rem; font-family: var(--serif); color: var(--violet); line-height: 0.9; }
+  .big-num span { font-size: clamp(6rem, 14vw, 10rem); }
+  .big-num small { font-size: 1.6rem; color: var(--ink-soft); }
+  blockquote { margin: 0; font-family: var(--serif); font-size: clamp(1.3rem, 2.2vw, 1.8rem); line-height: 1.3; }
+  cite { font-size: 0.85rem; color: var(--ink-soft); font-style: normal; }
+  .why-list { padding: clamp(1.6rem, 4vw, 2.6rem); background: #fff; border-radius: 20px; box-shadow: 0 30px 60px -40px rgba(74, 31, 216, 0.5); }
+  .why-list h2 { margin-bottom: 1.4rem; }
+  .why-list ul { display: grid; gap: 0.7rem; }
+  .why-list li { display: flex; gap: 0.8rem; align-items: center; font-weight: 600; padding-bottom: 0.7rem; border-bottom: 1px dashed var(--line); }
+  .x { flex: none; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(232, 56, 156, 0.12); color: var(--pink); font-size: 0.8rem; }
+  .answer { margin-top: 1.3rem; font-size: 1.6rem; color: var(--violet); display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+  .answer :global(.inline-sketch) { display: inline-block; }
+  @media (min-width: 900px) { .why-grid { grid-template-columns: 1fr 1fr; gap: 5rem; } }
+
+  /* PROGRAMS */
+  .programs { display: grid; position: relative; overflow: hidden; }
+  .prog-photo { position: relative; min-height: 420px; }
+  .prog-photo :global(.duo) { position: absolute; inset: 0; }
+  .prog-photo :global(.p-d1) { left: 18%; top: 14%; transform: rotate(8deg); }
+  .prog-photo :global(.p-d2) { right: 10%; top: 8%; }
+  .prog-photo :global(.p-stick) { position: absolute; left: 6%; bottom: 8%; }
+  .p-note { position: absolute; color: var(--pink); font-size: 1.7rem; }
+  .p-note-1 { right: 12%; bottom: 20%; transform: rotate(-8deg); }
+  .p-note-2 { left: 34%; top: 6%; transform: rotate(4deg); }
+  .prog-body { position: relative; padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 6vw, 5rem); display: grid; gap: 1.2rem; align-content: center; }
+  .prog-list { display: grid; gap: 1.5rem; margin: 1rem 0 1.4rem; }
+  .prog-list h3 { font-family: var(--serif); font-size: 1.45rem; margin-bottom: 0.25rem; color: var(--cream); }
+  .prog-list p { color: rgba(255, 255, 255, 0.75); max-width: 48ch; }
+  .prog-body .btn { justify-self: start; }
+  .p-math { position: absolute; right: 6%; bottom: 1.6rem; font-size: 1.4rem; color: var(--pink); transform: rotate(-4deg); }
+  @media (min-width: 980px) {
+    .programs { grid-template-columns: 0.95fr 1fr; min-height: 760px; }
+    .prog-photo { min-height: auto; }
+  }
+
+  /* JOURNEY */
+  .bg-paper { background: var(--paper); }
+  .j-head { display: grid; gap: 1rem; max-width: 760px; margin-bottom: 3rem; }
+  .stairs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem; }
+  .stairs a {
+    display: grid; gap: 0.2rem;
+    padding: 1.3rem 1.5rem;
+    border-radius: 16px;
+    color: #fff;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--violet) calc(100% - var(--i) * 18%), var(--magenta)) 0%, color-mix(in srgb, var(--violet-2) calc(100% - var(--i) * 18%), var(--pink)) 100%);
+    box-shadow: 0 18px 36px -24px rgba(74, 31, 216, 0.9);
+    transition: transform 0.3s var(--ease);
+  }
+  .stairs a:hover { transform: translateY(-4px); }
+  .lv { font-size: 0.72rem; font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sun); }
+  .stairs strong { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; line-height: 1.1; }
+  .stairs small { font-size: 0.85rem; color: rgba(255, 255, 255, 0.82); line-height: 1.4; }
+  @media (min-width: 980px) {
+    .stairs { grid-template-columns: repeat(5, 1fr); align-items: end; }
+    .stairs a { min-height: calc(170px + var(--i) * 46px); align-content: end; }
+  }
+  .j-foot { margin-top: 3.5rem; display: grid; gap: 1.6rem; justify-items: center; text-align: center; }
+  .acc-label .hand { font-size: 1.6rem; color: var(--violet); }
+  .j-cta { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+
+  /* DUTA */
+  .duta { overflow: hidden; }
+  .duta :global(.d-d1) { right: 4%; top: 2.5rem; }
+  .duta-grid { display: grid; gap: 3rem; align-items: center; }
+  .duta-img { position: relative; }
+  .duta-img :global(img) { border-radius: 18px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.7); transform: rotate(-2deg); width: 100%; }
+  .duta-img :global(.d-star) { right: -14px; top: -24px; }
+  .duta-body { display: grid; gap: 1.2rem; }
+  .duta-body .btn { justify-self: start; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chips li { padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.24); }
+  @media (min-width: 900px) { .duta-grid { grid-template-columns: 1.1fr 1fr; gap: 5rem; } }
+
+  /* PILLARS */
+  .pl-head { display: grid; gap: 1rem; margin-bottom: 3rem; }
+  .pl-grid { display: grid; gap: 1.2rem; }
+  .pl-grid article { display: grid; gap: 0.8rem; align-content: start; padding: 2rem 1.6rem; border-radius: 18px; background: #fff; border-top: 5px solid var(--violet); }
+  .pl-grid article:nth-child(2) { border-color: var(--magenta); }
+  .pl-grid article:nth-child(3) { border-color: var(--sun-2); }
+  .pl-ic { display: grid; place-items: center; width: 76px; height: 76px; border-radius: 50%; background: var(--grad); }
+  .pl-ic :global(img) { width: 48px; height: 48px; object-fit: contain; }
+  .pl-grid p { color: var(--ink-soft); }
+  @media (min-width: 860px) { .pl-grid { grid-template-columns: repeat(3, 1fr); } }
+</style>

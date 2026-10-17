@@ -1,0 +1,19 @@
+---
+// Duotone photo frame. Picture stays full resolution; colour is a blend-mode overlay.
+import { Image } from "astro:assets";
+import { eventImg } from "../lib/assets";
+interface Props { file: string; alt: string; tone?: "violet" | "sun" | "pink"; class?: string; sizes?: string; eager?: boolean; position?: string }
+const { file, alt, tone = "violet", class: cls, sizes = "100vw", eager = false, position = "center" } = Astro.props;
+---
+<div class:list={["duo", `duo-${tone}`, cls]}>
+  <Image
+    src={eventImg[file]}
+    alt={alt}
+    widths={[640, 960, 1400, 1920, 2400]}
+    sizes={sizes}
+    quality={88}
+    loading={eager ? "eager" : "lazy"}
+    fetchpriority={eager ? "high" : undefined}
+    style={`object-position:${position}`}
+  />
+</div>

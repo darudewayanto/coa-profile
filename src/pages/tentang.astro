@@ -1,0 +1,142 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Doodle from "../components/Doodle.astro";
+import Sketch from "../components/Sketch.astro";
+import Logo from "../components/Logo.astro";
+import Accreditation from "../components/Accreditation.astro";
+import JoinMovement from "../components/JoinMovement.astro";
+import { accredImg } from "../lib/assets";
+import hadeLogo from "../assets/brand/hade-navy.png";
+import daru from "../assets/deck/coach-flipchart.png";
+import { hade, pillars, site } from "../data/site";
+---
+<Base title="Tentang" description="Center of Agility (COA) adalah gerakan agility generasi muda di kampus, dipersembahkan oleh HADE — The Center of Agile Learning, pemegang 3 board master agile coach credential pertama di Asia & Australia.">
+  <PageHero
+    eyebrow="Tentang COA"
+    title="A contribution for <span class='brush'>Golden Indonesia</span>"
+    lead="Center of Agility lahir dari satu keyakinan: generasi muda Indonesia siap memimpin — kalau sejak kampus dibekali agility, resiliensi, dan mindset yang tepat."
+    photo="dsc02184"
+    alt="Peresmian Center of Agility bersama pimpinan kampus dan tim HADE"
+    tone="violet"
+  />
+
+  <section class="story section bg-cream">
+    <div class="wrap st-grid">
+      <div class="st-mark" data-reveal>
+        <Logo size={220} />
+        <Doodle kind="loop" class="sm1" color="var(--pink)" width={300} />
+        <Sketch name="jumpers-blue" class="jumpers" color="var(--violet)" width={220} />
+      </div>
+      <div class="st-body" data-reveal>
+        <span class="eyebrow">Siapa kami</span>
+        <h2 class="h-lg">Empowering <span class="brush">Agile</span> Young Leaders</h2>
+        <p class="lead">COA adalah gerakan dan pusat pengembangan agility di kampus. Kami bekerja bersama universitas, korporasi, dan komunitas untuk menyiapkan mahasiswa menjadi talenta yang tangguh, adaptif, dan siap berkolaborasi — sebagai daya ungkit bonus demografi menuju Indonesia Emas.</p>
+        <ul class="tri">
+          {pillars.map((p) => <li><b>{p.name}</b><span>{p.text}</span></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTED BY HADE -->
+  <section class="hade section bg-white">
+    <div class="wrap">
+      <div class="h-head" data-reveal>
+        <span class="eyebrow">Dipersembahkan oleh</span>
+        <Image src={hadeLogo} alt="HADE — The Center of Agile Learning" width={220} densities={[1, 1.6]} class="hade-logo" />
+        <p class="lead">HADE — The Center of Agile Learning adalah firma agile coaching dengan kredensial internasional dan jaringan coach di berbagai negara. Seluruh coach, kurikulum, dan sertifikasi COA berasal dari ekosistem HADE.</p>
+      </div>
+      <ul class="h-stats">
+        {hade.strengths.map((s) => (
+          <li data-reveal><strong>{s.value}</strong><span>{s.label}</span></li>
+        ))}
+      </ul>
+      <p class="presence" data-reveal>{hade.presence}</p>
+      <div class="cred" data-reveal>
+        <p class="hand">Agile coaching accredited certification holder from 3 major organizations</p>
+        <div class="badges">
+          {[["ice-ac", "ICAgile Certified Expert in Agile Coaching (ICE-AC)"], ["mcc", "ICF Master Certified Coach (MCC)"], ["mind-master", "MyBrain MiND Master Practitioner"], ["icp-acc", "ICAgile ICP-ACC"], ["icf-level1", "ICF Level 1 Accredited"]].map(([f, alt]) => (
+            <Image src={accredImg[f]} alt={alt} height={92} densities={[1, 2]} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder bg-night on-dark">
+    <div class="f-photo">
+      <Image src={daru} alt="Daru Dewayanto memfasilitasi sesi agile coaching" widths={[600, 1000, 1500]} sizes="(min-width: 960px) 40vw, 100vw" quality={90} />
+      <Doodle kind="star" class="fd1" color="var(--sun)" width={64} />
+    </div>
+    <div class="f-body" data-reveal>
+      <span class="eyebrow">Founder & Master Coach</span>
+      <h2 class="h-lg">Daru Dewayanto</h2>
+      <p class="creds">MCM · MCC · ICE-AC</p>
+      <p class="lead">Founder & Master Coach HADE. Bersama tim coach HADE, Daru memimpin Center of Agility dari ruang kelas kampus hingga panggung launching di berbagai universitas — membawa pengalaman mendampingi transformasi agile di grup BUMN, multinasional, dan pemerintahan.</p>
+      <ul class="awards">
+        {hade.awards.map((a) => <li>{a}</li>)}
+      </ul>
+      <p class="clients"><span>Pengalaman korporasi HADE:</span> {hade.clients.join(" · ")}</p>
+      <a class="btn btn-sun" href={site.hadeUrl} target="_blank" rel="noopener">Kenali HADE</a>
+    </div>
+  </section>
+
+  <section class="acc section bg-paper">
+    <div class="wrap acc-inner" data-reveal>
+      <span class="eyebrow">Akreditasi & Ekosistem</span>
+      <h2 class="h-md">Standar internasional, untuk mahasiswa Indonesia.</h2>
+      <Accreditation />
+    </div>
+  </section>
+
+  <JoinMovement />
+</Base>
+
+<style>
+  .bg-paper { background: var(--paper); }
+  .st-grid { display: grid; gap: 3rem; align-items: center; }
+  .st-mark { position: relative; display: grid; place-items: center; min-height: 320px; }
+  .st-mark :global(.coa-logo) { width: clamp(180px, 26vw, 260px); height: clamp(180px, 26vw, 260px); }
+  .st-mark :global(.sm1) { left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); width: clamp(260px, 38vw, 380px); }
+  .st-mark :global(.jumpers) { position: absolute; right: 0; bottom: -10px; opacity: 0.9; }
+  .st-body { display: grid; gap: 1.2rem; }
+  .tri { display: grid; gap: 0.8rem; margin-top: 0.6rem; }
+  .tri li { display: grid; gap: 0.15rem; padding: 1rem 1.2rem; border-radius: 14px; background: #fff; border-left: 4px solid var(--violet); }
+  .tri li:nth-child(2) { border-color: var(--magenta); }
+  .tri li:nth-child(3) { border-color: var(--sun-2); }
+  .tri b { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; }
+  .tri span { color: var(--ink-soft); font-size: 0.93rem; }
+  @media (min-width: 960px) { .st-grid { grid-template-columns: 0.85fr 1.15fr; gap: 5rem; } }
+
+  .h-head { display: grid; gap: 1.1rem; justify-items: center; text-align: center; margin-bottom: 3rem; }
+  .h-head :global(.hade-logo) { width: 220px; height: auto; }
+  .h-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .h-stats li { padding: 1.6rem 1.3rem; border-radius: 18px; background: var(--paper); display: grid; gap: 0.4rem; align-content: start; }
+  .h-stats strong { font-family: var(--serif); font-weight: 400; font-size: clamp(2.6rem, 5vw, 4rem); line-height: 1; color: var(--violet); }
+  .h-stats span { font-size: 0.9rem; color: var(--ink-soft); }
+  .presence { margin: 2rem auto 0; max-width: 70ch; text-align: center; color: var(--ink-soft); }
+  .cred { margin-top: 3rem; display: grid; gap: 1.4rem; justify-items: center; text-align: center; }
+  .cred .hand { font-size: 1.6rem; color: var(--magenta); }
+  .badges { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.2rem 2rem; }
+  .badges :global(img) { height: 92px; width: auto; }
+  @media (min-width: 900px) { .h-stats { grid-template-columns: repeat(4, 1fr); } }
+
+  .founder { display: grid; }
+  .f-photo { position: relative; min-height: 420px; overflow: hidden; background: var(--night-2); }
+  .f-photo :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .f-photo :global(.fd1) { right: 10%; top: 10%; }
+  .f-body { padding: clamp(3.5rem, 7vw, 6rem) clamp(1.25rem, 6vw, 5rem); display: grid; gap: 1.1rem; align-content: center; }
+  .creds { font-weight: 800; letter-spacing: 0.2em; color: var(--sun); font-size: 0.85rem; }
+  .awards { display: grid; gap: 0.5rem; margin-top: 0.4rem; }
+  .awards li { padding-left: 1.6rem; position: relative; }
+  .awards li::before { content: "★"; position: absolute; left: 0; color: var(--sun); }
+  .clients { font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
+  .clients span { display: block; font-weight: 700; color: #fff; }
+  .f-body .btn { justify-self: start; }
+  @media (min-width: 960px) { .founder { grid-template-columns: 0.85fr 1fr; min-height: 720px; } .f-photo { min-height: auto; } }
+
+  .acc-inner { display: grid; gap: 1.4rem; justify-items: center; text-align: center; }
+</style>

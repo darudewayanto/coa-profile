@@ -1,0 +1,134 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Duo from "../components/Duo.astro";
+import Doodle from "../components/Doodle.astro";
+import Icon from "../components/Icon.astro";
+import PartnerWall from "../components/PartnerWall.astro";
+import Gallery from "../components/Gallery.astro";
+import JoinMovement from "../components/JoinMovement.astro";
+import { mission, partnership, timeline, wa } from "../data/site";
+---
+<Base title="Kemitraan Kampus" description="Bangun Center of Agility di kampus Anda: sertifikasi agile coaching untuk Head of Center, ruang & signage COA, dan program berkelanjutan untuk mahasiswa bersama HADE.">
+  <PageHero
+    eyebrow="Center of Agility on Campus"
+    title="Bangun COA di <span class='brush'>kampus Anda</span>"
+    lead="Kemitraan HADE × universitas untuk menghadirkan pusat agility di kampus: dosen tersertifikasi, ruang khusus, dan program rutin untuk mahasiswa."
+    photo="dsc05796"
+    alt="Penyerahan sertifikat pada launching Center of Agility Universitas Trilogi"
+    tone="violet"
+    position="center 70%"
+  >
+    <div class="hero-cta">
+      <a class="btn btn-sun" href={wa("campus")} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Jadwalkan Diskusi</a>
+    </div>
+  </PageHero>
+
+  <!-- MISSION -->
+  <section class="mission section bg-cream">
+    <div class="wrap m-grid">
+      <div data-reveal>
+        <span class="eyebrow">Peran COA di kampus</span>
+        <h2 class="h-lg">Kami hadir dan <span class="brush">berkontribusi</span> lewat kampus.</h2>
+      </div>
+      <ol class="m-list">
+        {mission.map((m, i) => (
+          <li data-reveal><span>{i + 1}</span><p>{m}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP MODEL -->
+  <section class="model section bg-night on-dark">
+    <Doodle kind="spark" class="md1" color="var(--sun)" width={80} />
+    <div class="wrap">
+      <div class="mo-head" data-reveal>
+        <span class="eyebrow">Partnership Model</span>
+        <h2 class="h-lg">Tiga komitmen, <span class="brush pink">satu center</span>.</h2>
+      </div>
+      <div class="mo-grid">
+        {partnership.map((p, i) => (
+          <article data-reveal style={`transition-delay:${i * 80}ms`}>
+            <span class="mo-no">0{i + 1}</span>
+            <h3 class="h-sm">{p.name}</h3>
+            <ul>{p.points.map((pt) => <li>{pt}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS & TIMELINE -->
+  <section class="process section bg-white">
+    <div class="wrap">
+      <div class="pr-head" data-reveal>
+        <span class="eyebrow">Process & Timeline</span>
+        <h2 class="h-lg">Empat langkah menuju <span class="brush">launching</span></h2>
+      </div>
+      <ol class="road">
+        {timeline.map((t, i) => (
+          <li data-reveal style={`--i:${i}`}>
+            <span class="dot">{i + 1}</span>
+            <h3>{t.step}</h3>
+            <p>{t.text}</p>
+            {t.note && <small>{t.note}</small>}
+          </li>
+        ))}
+      </ol>
+      <svg class="road-line" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M10 90C140 10 240 10 370 70s240 60 360-10 200-40 260 0" fill="none" stroke="var(--pink)" stroke-width="3" stroke-dasharray="8 10" stroke-linecap="round"/></svg>
+    </div>
+  </section>
+
+  <!-- PHOTO BAND -->
+  <section class="band">
+    <Duo file="dsc01851" alt="Penandatanganan kerja sama Center of Agility" tone="violet" class="b1" sizes="50vw" />
+    <Duo file="dsc02198" alt="Peresmian Center of Agility di kampus partner" tone="pink" class="b2" sizes="50vw" />
+    <p class="band-note hand">Dari MoU ke gerakan — satu kampus demi satu kampus.</p>
+  </section>
+
+  <PartnerWall />
+  <Gallery title="Momen <span class='brush pink'>launching</span>" />
+  <JoinMovement />
+</Base>
+
+<style>
+  .hero-cta { margin-top: 0.4rem; }
+  .m-grid { display: grid; gap: 3rem; }
+  .m-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; counter-reset: m; }
+  .m-list li { display: flex; gap: 1.1rem; align-items: flex-start; padding: 1.2rem 1.3rem; background: #fff; border-radius: 14px; }
+  .m-list span { flex: none; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: var(--grad); color: #fff; font-family: var(--serif); font-size: 1.3rem; }
+  @media (min-width: 960px) { .m-grid { grid-template-columns: 0.9fr 1.1fr; gap: 5rem; } .m-grid > div:first-child { position: sticky; top: 120px; align-self: start; } }
+
+  .model { overflow: hidden; }
+  .model :global(.md1) { right: 6%; top: 3rem; }
+  .mo-head { display: grid; gap: 1rem; margin-bottom: 2.5rem; }
+  .mo-grid { display: grid; gap: 1.2rem; }
+  .mo-grid article { position: relative; padding: 2rem 1.6rem; border-radius: 18px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); overflow: hidden; }
+  .mo-no { position: absolute; right: 1rem; top: 0.2rem; font-family: var(--serif); font-size: 4.5rem; color: rgba(255, 255, 255, 0.08); }
+  .mo-grid h3 { color: var(--sun); margin-bottom: 1rem; }
+  .mo-grid ul { display: grid; gap: 0.8rem; }
+  .mo-grid li { padding-left: 1.1rem; position: relative; color: rgba(255, 255, 255, 0.84); }
+  .mo-grid li::before { content: ""; position: absolute; left: 0; top: 0.65em; width: 7px; height: 7px; border-radius: 50%; background: var(--pink); }
+  @media (min-width: 900px) { .mo-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .process .wrap { position: relative; }
+  .pr-head { display: grid; gap: 1rem; margin-bottom: 3rem; }
+  .road { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.2rem; position: relative; z-index: 1; }
+  .road li { padding: 1.6rem 1.4rem; border-radius: 18px; background: var(--paper); display: grid; gap: 0.6rem; align-content: start; }
+  .dot { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%; background: var(--sun); font-family: var(--serif); font-size: 1.6rem; color: var(--night); }
+  .road h3 { font-size: 1.6rem; }
+  .road p { color: var(--ink-soft); }
+  .road small { font-size: 0.8rem; color: var(--magenta); font-style: italic; }
+  .road-line { display: none; }
+  @media (min-width: 960px) {
+    .road { grid-template-columns: repeat(4, 1fr); }
+    .road li { margin-top: calc(var(--i) * 1.4rem); background: color-mix(in srgb, var(--paper) 92%, transparent); }
+    .road-line { display: block; position: absolute; left: 0; right: 0; top: 150px; width: 100%; height: 120px; }
+  }
+
+  .band { position: relative; display: grid; grid-template-columns: 1fr 1fr; height: clamp(260px, 38vw, 480px); }
+  .band :global(.duo) { height: 100%; }
+  .band-note { position: absolute; left: 50%; bottom: 1.4rem; transform: translateX(-50%) rotate(-2deg); background: var(--sun); color: var(--night); padding: 0.3rem 1rem; border-radius: 6px; font-size: clamp(1.2rem, 2.2vw, 1.8rem); white-space: nowrap; }
+  @media (max-width: 600px) { .band-note { white-space: normal; width: 86%; text-align: center; } }
+</style>

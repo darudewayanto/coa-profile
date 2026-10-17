@@ -1,0 +1,64 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHero from "../components/PageHero.astro";
+import Icon from "../components/Icon.astro";
+import { site, wa, type WaTopic } from "../data/site";
+
+const options: { topic: WaTopic; who: string; text: string }[] = [
+  { topic: "student", who: "Saya mahasiswa", text: "Ikut Micro-Credential, Duta Agility, atau 1on1 coaching." },
+  { topic: "campus", who: "Saya dari kampus", text: "Membangun Center of Agility on Campus bersama HADE." },
+  { topic: "certification", who: "Saya dosen / profesional", text: "Agile Coaching Certification untuk dosen, staf, dan publik." },
+  { topic: "corporate", who: "Saya dari perusahaan", text: "Partner ekosistem, riset, dan talent center." },
+  { topic: "community", who: "Saya dari komunitas", text: "Kolaborasi program dan media sosial." },
+];
+---
+<Base title="Kontak" description="Hubungi Center of Agility via WhatsApp, email, atau Instagram @centerofagility.">
+  <PageHero
+    eyebrow="Kontak"
+    title="Mari <span class='brush'>ngobrol</span>"
+    lead="Pilih yang paling sesuai — pesan WhatsApp akan terisi otomatis supaya tim kami bisa langsung membantu."
+    photo="dsc00931"
+    alt="Mahasiswa di ruang workshop COA"
+    tone="pink"
+  />
+
+  <section class="section bg-cream">
+    <div class="wrap grid">
+      <ul class="opts">
+        {options.map((o) => (
+          <li data-reveal>
+            <a href={wa(o.topic)} target="_blank" rel="noopener">
+              <span class="ic"><Icon name="whatsapp" size={22} /></span>
+              <span class="tx"><b>{o.who}</b><small>{o.text}</small></span>
+              <Icon name="arrow-up-right" size={22} class="go" />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <aside class="card" data-reveal>
+        <h2 class="h-sm">Kontak langsung</h2>
+        <a href={wa("general")} target="_blank" rel="noopener"><Icon name="phone" size={20} /> {site.phoneDisplay}</a>
+        <a href={`mailto:${site.email}`}><Icon name="mail" size={20} /> {site.email}</a>
+        <a href={site.instagram} target="_blank" rel="noopener"><Icon name="globe" size={20} /> Instagram {site.instagramHandle}</a>
+        <a href={site.instagramCoach} target="_blank" rel="noopener"><Icon name="globe" size={20} /> Instagram @agilecoach.id</a>
+        <p class="hand">Kami balas secepatnya ✦</p>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .grid { display: grid; gap: 2rem; align-items: start; }
+  .opts { display: grid; gap: 0.8rem; }
+  .opts a { display: flex; align-items: center; gap: 1rem; padding: 1.2rem 1.3rem; border-radius: 16px; background: #fff; border: 2px solid transparent; transition: border-color 0.25s, transform 0.25s var(--ease); }
+  .opts a:hover { border-color: var(--violet); transform: translateX(4px); }
+  .ic { flex: none; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: #25d366; color: #fff; }
+  .tx { display: grid; flex: 1; }
+  .tx b { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; }
+  .tx small { color: var(--ink-soft); font-size: 0.9rem; }
+  .opts :global(.go) { color: var(--violet); flex: none; }
+  .card { padding: 2rem 1.6rem; border-radius: 20px; background: var(--grad); color: #fff; display: grid; gap: 0.9rem; }
+  .card a { display: flex; align-items: center; gap: 0.7rem; font-weight: 600; word-break: break-word; }
+  .card .hand { font-size: 1.5rem; color: var(--sun); margin-top: 0.5rem; }
+  @media (min-width: 900px) { .grid { grid-template-columns: 1.4fr 1fr; gap: 3rem; } .card { position: sticky; top: 110px; } }
+</style>

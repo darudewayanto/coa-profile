@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import { u } from "../lib/url";
+import Logo from "./Logo.astro";
+import Icon from "./Icon.astro";
+import hade from "../assets/brand/hade-white.png";
+import { site, nav, wa } from "../data/site";
+const year = new Date().getFullYear();
+---
+<footer class="footer on-dark">
+  <div class="wrap grid">
+    <div class="about">
+      <div class="brand"><Logo size={64} /><span class="name">Center of Agility</span></div>
+      <p>Empowering Agile Young Leaders. Gerakan membangun agility & resiliensi generasi muda Indonesia — dari kampus, untuk Indonesia Emas.</p>
+      <div class="by">
+        <span>Dipersembahkan oleh</span>
+        <a href={site.hadeUrl} target="_blank" rel="noopener" aria-label="HADE — The Center of Agile Learning">
+          <Image src={hade} alt="HADE" width={110} densities={[1, 2]} />
+        </a>
+      </div>
+    </div>
+
+    <nav class="col" aria-label="Footer">
+      <h3>Jelajahi</h3>
+      {nav.map((n) => <a href={u(n.href)}>{n.label}</a>)}
+    </nav>
+
+    <div class="col">
+      <h3>Hubungi</h3>
+      <a href={wa("general")} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> {site.phoneDisplay}</a>
+      <a href={`mailto:${site.email}`}><Icon name="mail" size={18} /> {site.email}</a>
+      <a href={site.instagram} target="_blank" rel="noopener"><Icon name="globe" size={18} /> {site.instagramHandle}</a>
+      <a href={site.instagramCoach} target="_blank" rel="noopener"><Icon name="globe" size={18} /> @agilecoach.id</a>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© {year} Center of Agility · HADE — The Center of Agile Learning</span>
+    <span class="hand">A contribution for Golden Indonesia ✦</span>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--night); padding: 4.5rem 0 2rem; }
+  .grid { display: grid; gap: 2.5rem; }
+  .brand { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1rem; }
+  .name { font-family: var(--serif); font-size: 1.8rem; }
+  .about p { color: rgba(255, 255, 255, 0.7); max-width: 42ch; }
+  .by { margin-top: 1.6rem; display: flex; align-items: center; gap: 0.9rem; font-size: 0.78rem; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 0.12em; }
+  .by :global(img) { width: 110px; height: auto; }
+  .col { display: grid; align-content: start; gap: 0.6rem; }
+  .col h3 { font-family: var(--sans); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sun); margin-bottom: 0.4rem; }
+  .col a { display: inline-flex; align-items: center; gap: 0.55rem; color: rgba(255, 255, 255, 0.82); width: fit-content; }
+  .col a:hover { color: #fff; }
+  .legal { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.12); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.8rem; font-size: 0.82rem; color: rgba(255, 255, 255, 0.55); }
+  .legal .hand { font-size: 1.25rem; color: var(--sun); }
+  @media (min-width: 860px) { .grid { grid-template-columns: 1.6fr 1fr 1.2fr; } }
+</style>

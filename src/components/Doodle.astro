@@ -1,0 +1,25 @@
+---
+// Hand-drawn marks (the reference's red outlines and chalk formulas), drawn as wobbly SVG strokes.
+interface Props { kind: "loop" | "arrow" | "star" | "squiggle" | "spark" | "underline" | "burst" | "zigzag"; class?: string; color?: string; width?: number }
+const { kind, class: cls, color = "currentColor", width = 120 } = Astro.props;
+
+const shapes: Record<string, { vb: string; d: string }> = {
+  loop: { vb: "0 0 200 120", d: "M150 18C120 4 50 6 22 34 2 56 14 92 60 106c50 15 118 4 132-34C204 40 168 16 122 12 92 10 64 16 48 24" },
+  arrow: { vb: "0 0 160 120", d: "M10 20c40-6 86 6 108 38 12 18 14 38 10 52M112 92l17 20 18-22" },
+  star: { vb: "0 0 100 100", d: "M50 6l11 30 33 2-26 20 9 32-27-19-27 19 9-32L6 38l33-2z" },
+  squiggle: { vb: "0 0 200 40", d: "M4 22c14-16 26-16 34 0s20 16 32 0 22-16 32 0 22 16 34 0 22-16 34 0 18 12 26 6" },
+  spark: { vb: "0 0 100 100", d: "M50 8v22M50 70v22M8 50h22M70 50h22M20 20l14 14M66 66l14 14M80 20 66 34M34 66 20 80" },
+  underline: { vb: "0 0 240 30", d: "M6 18c50-10 120-14 228-8M30 26c50-6 110-8 170-4" },
+  burst: { vb: "0 0 120 120", d: "M60 10v20M60 90v20M10 60h20M90 60h20M25 25l14 14M81 81l14 14M95 25 81 39M39 81 25 95M60 44a16 16 0 1 1 0 32 16 16 0 0 1 0-32" },
+  zigzag: { vb: "0 0 200 40", d: "M4 30 24 10l20 20 20-20 20 20 20-20 20 20 20-20 20 20 20-20 16 16" },
+};
+const s = shapes[kind];
+---
+<svg class:list={["doodle", cls]} viewBox={s.vb} width={width} fill="none" stroke={color} stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <path d={s.d} />
+</svg>
+
+<style>
+  .doodle { position: absolute; pointer-events: none; overflow: visible; }
+  .doodle path { transition: stroke-dashoffset 1.6s var(--ease) 0.25s; }
+</style>
