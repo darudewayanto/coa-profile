@@ -9,11 +9,11 @@ Astro static site, Bahasa Indonesia. Dev server: `coa-website` (port 4324, `~/de
 - **Review screenshot**: tambahkan `?static` pada URL untuk menampilkan semua section tanpa animasi.
 
 ## Deploy
-`.github/workflows/deploy.yml` → GitHub Pages `darudewayanto/coa-profile` (noindex). Belum dibuat/di-push.
+`.github/workflows/deploy.yml` → GitHub Pages `darudewayanto/coa-profile` (noindex), live di https://darudewayanto.github.io/coa-profile/ — push ke main = auto deploy.
 
 ## Checklist go-live
-- [ ] Konfirmasi: kurikulum Level 1–5 (deck berlabel CONFIDENTIAL) boleh tayang publik
-- [ ] Konfirmasi wording akreditasi (IG: "Accredited internationally by ICF & MyBrain"; deck: "compliance & soon to be accredited")
+- [x] Kurikulum Level 1–5 boleh tayang publik (Daru, 17 Okt 2026)
+- [x] Wording akreditasi pakai versi IG: "Accredited internationally by ICF & MyBrain" (Daru, 17 Okt 2026)
 - [ ] Nomor WA & email khusus COA (sementara kontak HADE)
 - [ ] Domain + hosting (mis. centerofagility.id) → set SITE_URL, hapus PUBLIC_NOINDEX
 - [ ] Logo COA versi vektor
