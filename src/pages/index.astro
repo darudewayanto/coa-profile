@@ -8,7 +8,7 @@ import Icon from "../components/Icon.astro";
 import Gallery from "../components/Gallery.astro";
 import PartnerWall from "../components/PartnerWall.astro";
 import JoinMovement from "../components/JoinMovement.astro";
-import Accreditation from "../components/Accreditation.astro";
+import McAccreditation from "../components/McAccreditation.astro";
 import { u } from "../lib/url";
 import { doodleImg } from "../lib/assets";
 import dutaPoster from "../assets/deck/duta-agility.png";
@@ -130,10 +130,7 @@ import { stats, youthFacts, programs, pillars, levels, wa, site } from "../data/
         ))}
       </ol>
       <div class="j-foot" data-reveal>
-        <div class="acc-label">
-          <span class="hand">Accredited internationally by ICF & MyBrain</span>
-        </div>
-        <Accreditation compact />
+        <McAccreditation />
         <div class="j-cta">
           <a class="btn btn-violet" href={u("/micro-credential")}>Pelajari Kurikulum</a>
           <a class="btn btn-wa" href={wa("student")} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Daftar Batch Berikutnya</a>

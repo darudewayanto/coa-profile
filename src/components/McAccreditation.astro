@@ -1,0 +1,18 @@
+---
+// Official micro-credential accreditation artwork (supplied by Daru, 935×690). Used as-is, never redrawn.
+// Shown at max 460px CSS width so the source covers 2× retina screens, and served as lossless PNG.
+import { Image } from "astro:assets";
+import art from "../assets/accred/mc-accreditation.png";
+---
+<Image
+  src={art}
+  alt="ICF CCE dan MyBrain MiND — Program Compliance & Soon To Be Accredited by ICF, ICAgile, dan MyBrain"
+  widths={[460, 935]}
+  sizes="(min-width: 520px) 460px, 88vw"
+  format="png"
+  class="mc-accred"
+/>
+
+<style>
+  .mc-accred { width: min(460px, 88vw); height: auto; margin-inline: auto; }
+</style>
