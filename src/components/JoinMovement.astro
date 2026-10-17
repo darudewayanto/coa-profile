@@ -47,4 +47,5 @@ const { title = "Join the <span class='brush'>Movement</span>" } = Astro.props;
   .join :global(.d1) { left: -40px; top: 40px; opacity: 0.8; }
   .join :global(.d2) { right: 6%; bottom: 40px; }
   @media (min-width: 860px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 860px) { .join :global(.d1) { display: none; } }
 </style>

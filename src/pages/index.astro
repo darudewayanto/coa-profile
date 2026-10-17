@@ -234,13 +234,17 @@ import { stats, youthFacts, programs, pillars, levels, wa, site } from "../data/
   .h-note-2 { left: 6%; bottom: 26%; transform: rotate(5deg); }
   @media (max-width: 1100px) { .h-note-1 { display: none; } }
   @media (max-width: 720px) {
-    .h-note, .hero :global(.h-d1), .hero :global(.h-d4) { display: none; }
+    .h-note, .hero :global(.h-d1), .hero :global(.h-d2), .hero :global(.h-d4) { display: none; }
   }
 
   /* STATS */
   .stats { overflow: hidden; text-align: center; }
-  .numbers { display: grid; gap: 2rem; grid-template-columns: repeat(3, 1fr); max-width: 860px; margin: 0 auto 3rem; }
-  .numbers strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 8vw, 6rem); line-height: 1; }
+  .numbers { display: grid; gap: 2rem; grid-template-columns: repeat(3, auto); justify-content: space-evenly; max-width: 980px; margin: 0 auto 3rem; }
+  @media (max-width: 600px) {
+    .numbers { grid-template-columns: 1fr; gap: 1.6rem; }
+    .stats .numbers span { white-space: normal; font-size: 1.25rem; }
+  }
+  .numbers strong { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(3.2rem, 7vw, 6rem); line-height: 1; }
   .numbers span { display: block; white-space: pre-line; font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.5rem); line-height: 1.15; color: var(--cream); margin-top: 0.4rem; }
   .story { max-width: 60ch; margin: 0 auto; color: rgba(255, 255, 255, 0.88); }
   .center { margin-top: 2rem; }

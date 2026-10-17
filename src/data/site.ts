@@ -49,7 +49,7 @@ export const nav = [
 export const stats = [
   { value: "12", label: "Kampus\nPartner" },
   { value: "5", label: "Level\nMicro-Credential" },
-  { value: "1.800+", label: "Coach Lulusan\nHADE" },
+  { value: "200.000+", label: "Total\nStudent Body" },
 ];
 
 export const youthFacts = {

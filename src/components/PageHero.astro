@@ -25,4 +25,5 @@ const { eyebrow, title, lead, photo, tone = "violet", position = "center", alt }
   .inner h1 { max-width: 16ch; text-shadow: 0 2px 24px rgba(23, 10, 74, 0.35); }
   .page-hero :global(.d1) { top: 22%; right: 9%; }
   .page-hero :global(.d2) { bottom: 12%; right: 6%; }
+  @media (max-width: 720px) { .page-hero :global(.d1), .page-hero :global(.d2) { display: none; } }
 </style>
