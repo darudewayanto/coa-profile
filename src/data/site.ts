@@ -17,6 +17,9 @@ export const site = {
   instagramHandle: "@centerofagility",
   instagramCoach: "https://www.instagram.com/agilecoach.id/",
   hadeUrl: "https://hade.belajaragile.com",
+  // COA community on the belajaragile.com platform (sign up / log in).
+  communityUrl: "https://belajaragile.com/coa",
+  communityLoginUrl: "https://belajaragile.com/masuk?komunitas=center-of-agility",
 };
 
 const waMessages = {
@@ -37,6 +40,7 @@ export const nav = [
   { href: "/", label: "Beranda" },
   { href: "/program", label: "Program" },
   { href: "/micro-credential", label: "Micro-Credential" },
+  { href: "/belajar-agile", label: "Belajar Agile" },
   { href: "/kemitraan", label: "Kemitraan" },
   { href: "/tentang", label: "Tentang" },
   { href: "/kontak", label: "Kontak" },
@@ -345,3 +349,45 @@ export const hade = {
   ],
   clients: ["Telkom Group", "Pertamina Group", "BPJS Ketenagakerjaan", "Kementerian Ketenagakerjaan", "Shell Indonesia", "XL Axiata"],
 };
+
+// Class catalogue on belajaragile.com/coa (from the platform's Kelas page, Oct 2026).
+export const classSeries = [
+  {
+    name: "Micro-Credential COA",
+    shot: "kelas-micro-credential",
+    text: "Jalur utama COA dari Level 1 sampai 5. Mulai dari kelas WELCOME dan Level 1 yang gratis.",
+    classes: [
+      { title: "WELCOME — Welcoming & Introduction", tier: "Gratis" },
+      { title: "Level 1 · Agile Mindset", tier: "Gratis" },
+      { title: "Level 2 · Agility & Resiliency", tier: "Premium Bulanan" },
+      { title: "Level 3 · Agile Competency", tier: "Premium Bulanan" },
+      { title: "Level 4 · Agile Team & Collaboration", tier: "Premium Bulanan" },
+      { title: "Level 5 · Building Agile Culture", tier: "Premium Bulanan" },
+    ],
+  },
+  {
+    name: "Agility & Mental Fitness Series + Coaching",
+    shot: "kelas-mental-fitness",
+    text: "Kelas singkat untuk menjaga mental tetap fit: melawan pikiran negatif, kontrol diri, dan tahan banting.",
+    classes: [
+      { title: "Agility & Mental Fitness with Applied-Neuroscience", tier: "Gratis" },
+      { title: "Anti-Fragile in Agility", tier: "Gratis" },
+      { title: "Killing Negative Thoughts", tier: "Gratis" },
+      { title: "Self-Control & Instant Gratification", tier: "Gratis" },
+      { title: "Managing Stress & Handling Resistance", tier: "Gratis" },
+      { title: "Coaching Competency Workshop (Digital Program) — berbasis ICF Core Competencies", tier: "Premium Product" },
+    ],
+  },
+  {
+    name: "Youth Communications & Entrepreneurship Series",
+    shot: "kelas-komunikasi-bisnis",
+    text: "Bekal presentasi, komunikasi, dan memulai usaha — untuk organisasi kampus, magang, sampai startup pertamamu.",
+    classes: [
+      { title: "Mastering Communication & Influencing with Applied-Neuroscience", tier: "Gratis" },
+      { title: "High Impact & Effective Engagement Presentation", tier: "Gratis" },
+      { title: "How To Start Your Business", tier: "Premium Bulanan" },
+      { title: "How To Scale-Up Your Business", tier: "Premium Bulanan" },
+      { title: "How To Create Your Investor Pitch Deck", tier: "Premium Bulanan" },
+    ],
+  },
+];

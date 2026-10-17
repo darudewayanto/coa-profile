@@ -2,7 +2,7 @@
 import { u } from "../lib/url";
 import Logo from "./Logo.astro";
 import Icon from "./Icon.astro";
-import { nav, wa } from "../data/site";
+import { nav, site } from "../data/site";
 
 interface Props { overlay?: boolean }
 const { overlay = false } = Astro.props;
@@ -23,7 +23,7 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
       ))}
     </nav>
 
-    <a href={wa("general")} target="_blank" rel="noopener" class="btn btn-sun cta">Gabung</a>
+    <a href={site.communityUrl} target="_blank" rel="noopener" class="btn btn-sun cta">Gabung</a>
 
     <button class="toggle" aria-expanded="false" aria-controls="mobile-nav" data-toggle>
       <span class="sr-only">Buka menu</span>
@@ -36,7 +36,7 @@ const isActive = (href: string) => (href === "/" ? path === "/" : path.startsWit
     <nav aria-label="Mobile">
       {nav.map((n) => <a href={u(n.href)} class:list={[{ active: isActive(n.href) }]}>{n.label}</a>)}
     </nav>
-    <a class="btn btn-wa" href={wa("general")} target="_blank" rel="noopener"><Icon name="whatsapp" /> Chat via WhatsApp</a>
+    <a class="btn btn-sun" href={site.communityUrl} target="_blank" rel="noopener">Gabung Komunitas COA</a>
   </div>
 </header>
 
