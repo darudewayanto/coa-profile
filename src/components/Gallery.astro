@@ -14,7 +14,7 @@ const items = gallery.slice(0, limit);
     </div>
     <ul class="masonry">
       {items.map((g, i) => (
-        <li data-reveal class:list={[{ wide: i % 5 === 0 }]}>
+        <li data-reveal class:list={[{ wide: i % 6 === 0 }]}>
           <figure>
             <Image src={eventImg[g.file]} alt={g.caption} widths={[600, 900, 1300, 1800]} sizes="(min-width: 980px) 33vw, (min-width: 640px) 50vw, 100vw" quality={88} />
             <figcaption>{g.caption}</figcaption>

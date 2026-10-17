@@ -24,7 +24,7 @@ const why = [
 
 const features = [
   { icon: "chat", title: "Komunitas", text: "Diskusi, polling, dan berbagi cerita dengan sesama anggota." },
-  { icon: "layers", title: "Kelas", text: "Modul demi modul dengan progres belajar. Ada kelas gratis dan premium." },
+  { icon: "layers", title: "Kelas", text: "Modul demi modul dengan progres belajar — banyak yang gratis." },
   { icon: "calendar", title: "Acara", text: "Webinar, sesi coaching, dan event kampus — RSVP sekali klik." },
   { icon: "users", title: "Anggota & Pesan", text: "Cari teman satu minat dan kirim pesan langsung." },
   { icon: "award", title: "Peringkat", text: "Kumpulkan poin dari kontribusimu, naik level, dan masuk leaderboard." },
@@ -37,9 +37,8 @@ const steps = [
   { title: "Mulai dari WELCOME", text: "Tonton kelas WELCOME, lanjut Level 1 · Agile Mindset — keduanya gratis." },
 ];
 
-const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Product" ? "product" : "premium");
 ---
-<Base title="Belajar Agile" description="Komunitas belajar COA di belajaragile.com/coa: kelas Micro-Credential Level 1–5, Agility & Mental Fitness, komunikasi, dan entrepreneurship untuk mahasiswa & anak muda. Gratis untuk bergabung.">
+<Base title="Belajar Agile" description="Join gratis komunitas belajar COA di belajaragile.com/coa: kelas Micro-Credential Level 1–5, Agility & Mental Fitness, komunikasi, dan entrepreneurship untuk mahasiswa & anak muda. Gratis untuk bergabung.">
   <!-- HERO -->
   <section class="c-hero bg-night on-dark">
     <Doodle kind="loop" class="hd1" color="var(--pink)" width={260} />
@@ -50,14 +49,15 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
         <h1 class="h-xl">Belajar agile, <span class="brush">bareng</span> teman seperjuangan.</h1>
         <p class="lead">Ruang belajar online Center of Agility untuk mahasiswa dan anak muda: kelas micro-credential, mental fitness, komunikasi, sampai entrepreneurship — plus komunitas yang saling dukung.</p>
         <div class="btns">
-          <a class="btn btn-sun" href={join} target="_blank" rel="noopener">Gabung Gratis <Icon name="arrow-up-right" size={18} /></a>
+          <a class="btn btn-sun btn-big pulse" href={join} target="_blank" rel="noopener">Join Gratis Sekarang <Icon name="arrow-up-right" size={20} /></a>
           <a class="btn btn-ghost" href={login} target="_blank" rel="noopener">Masuk</a>
         </div>
-        <p class="hand note">Gratis gabung · belajaragile.com/coa ✦</p>
+        <p class="hand note">100% gratis · daftar 1 menit · belajaragile.com/coa ✦</p>
       </div>
       <figure class="shot tilt">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>belajaragile.com/coa</span></div>
-        <Image src={shots["kelas-micro-credential"]} alt="Halaman Kelas komunitas Center of Agility: WELCOME dan Micro Credential Level 1–5" widths={[736]} sizes="(min-width: 980px) 560px, 92vw" loading="eager" quality={95} />
+        <Image src={shots["feed"]} alt="Feed komunitas Center of Agility: kategori diskusi, kohort MC Batch 1 – Level 1, dan peringkat 30 hari" widths={[600, 1000, 1400]} sizes="(min-width: 980px) 560px, 92vw" loading="eager" quality={90} />
+        <figcaption>Feed komunitas · nama & pesan anggota diburamkan untuk privasi</figcaption>
       </figure>
     </div>
   </section>
@@ -88,7 +88,7 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
       <div class="head" data-reveal>
         <span class="eyebrow">Kelas di platform</span>
         <h2 class="h-lg">Pilih <span class="brush">jalur belajarmu</span></h2>
-        <p class="lead">Mulai dari yang gratis. Kelas Premium Bulanan terbuka begitu kamu berlangganan.</p>
+        <p class="lead">Mulai dari kelas gratis — WELCOME, Level 1 Agile Mindset, Mental Fitness, dan Communications.</p>
       </div>
 
       {classSeries.map((s, i) => (
@@ -99,7 +99,7 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
             <p class="s-text">{s.text}</p>
             <ul class="classes">
               {s.classes.map((c) => (
-                <li><span class="ct">{c.title}</span><span class:list={["tier", tierClass(c.tier)]}>{c.tier}</span></li>
+                <li><span class="ct">{c.title}</span>{c.tier === "Gratis" && <span class="tier free">Gratis</span>}</li>
               ))}
             </ul>
           </div>
@@ -111,7 +111,7 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
       ))}
 
       <div class="center" data-reveal>
-        <a class="btn btn-violet" href={join} target="_blank" rel="noopener">Lihat Semua Kelas <Icon name="arrow-up-right" size={18} /></a>
+        <a class="btn btn-sun btn-big" href={join} target="_blank" rel="noopener">Join Gratis Sekarang <Icon name="arrow-up-right" size={20} /></a>
       </div>
     </div>
   </section>
@@ -133,11 +133,6 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
           </li>
         ))}
       </ul>
-      <div class="tiers" data-reveal>
-        <div><b>Gratis</b><span>Komunitas, acara, direktori anggota, WELCOME, Level 1, dan seri Mental Fitness & Communications.</span></div>
-        <div><b>Premium Bulanan</b><span>Membuka Micro-Credential Level 2–5 dan Business & Entrepreneurship Series.</span></div>
-        <div><b>Premium Product</b><span>Program digital khusus, seperti Coaching Competency Workshop.</span></div>
-      </div>
     </div>
   </section>
 
@@ -165,10 +160,11 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
     <Doodle kind="spark" class="cd1" color="var(--sun)" width={80} />
     <Doodle kind="squiggle" class="cd2" color="#fff" width={160} />
     <div class="wrap cta-inner" data-reveal>
+      <p class="kick">Join gratis sekarang</p>
       <h2 class="h-lg">Siap jadi <span class="brush">Agile Young Leader</span>?</h2>
-      <p class="lead">Gabung gratis sekarang. Kampusmu belum punya COA? Ajak dosen atau BEM-mu ngobrol dengan kami.</p>
+      <p class="lead">Daftar gratis, langsung mulai dari kelas WELCOME. Kampusmu belum punya COA? Ajak dosen atau BEM-mu ngobrol dengan kami.</p>
       <div class="btns">
-        <a class="btn btn-sun" href={join} target="_blank" rel="noopener">Gabung Komunitas COA <Icon name="arrow-up-right" size={18} /></a>
+        <a class="btn btn-sun btn-big pulse" href={join} target="_blank" rel="noopener">Join Gratis Sekarang <Icon name="arrow-up-right" size={20} /></a>
         <a class="btn btn-ghost" href={login} target="_blank" rel="noopener">Sudah punya akun? Masuk</a>
         <a class="btn btn-wa" href={wa("student")} target="_blank" rel="noopener"><Icon name="whatsapp" size={18} /> Tanya dulu</a>
       </div>
@@ -196,6 +192,11 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
   .bar i:first-child { background: #ff6159; } .bar i:nth-child(2) { background: #ffbd2e; } .bar i:nth-child(3) { background: #28c941; }
   .bar span { margin-left: 0.6rem; font-size: 0.75rem; color: var(--ink-soft); background: #fff; border-radius: 6px; padding: 0.15rem 0.7rem; }
   .shot :global(img) { width: 100%; height: auto; }
+  .shot figcaption { padding: 0.5rem 0.9rem; font-size: 0.75rem; color: var(--ink-soft); background: #f7f5fc; }
+  .btn-big { padding: 1.1rem 1.9rem; font-size: 1rem; }
+  .pulse { animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 210, 63, 0.55); } 60% { box-shadow: 0 0 0 16px rgba(255, 210, 63, 0); } }
+  .kick { font-family: var(--hand); font-size: 1.8rem; color: var(--sun); transform: rotate(-2deg); }
 
   .head { display: grid; gap: 1rem; max-width: 780px; margin-bottom: 3rem; }
   .center-head { margin-inline: auto; text-align: center; justify-items: center; }
@@ -233,11 +234,6 @@ const tierClass = (t: string) => (t === "Gratis" ? "free" : t === "Premium Produ
   .feat p { color: rgba(255, 255, 255, 0.82); }
   @media (min-width: 720px) { .feat { grid-template-columns: repeat(2, 1fr); } }
   @media (min-width: 1040px) { .feat { grid-template-columns: repeat(3, 1fr); } }
-  .tiers { margin-top: 2rem; display: grid; gap: 1rem; padding: 1.5rem; border-radius: 18px; background: rgba(23, 10, 74, 0.35); }
-  .tiers div { display: grid; gap: 0.2rem; }
-  .tiers b { font-family: var(--serif); font-weight: 400; font-size: 1.35rem; color: var(--sun); }
-  .tiers span { color: rgba(255, 255, 255, 0.82); font-size: 0.93rem; }
-  @media (min-width: 900px) { .tiers { grid-template-columns: repeat(3, 1fr); gap: 2rem; } }
 
   .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.1rem; }
   .steps li { padding: 1.8rem 1.5rem; border-radius: 18px; background: var(--paper); display: grid; gap: 0.6rem; align-content: start; }

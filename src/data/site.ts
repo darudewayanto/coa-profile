@@ -355,7 +355,7 @@ export const classSeries = [
   {
     name: "Micro-Credential COA",
     shot: "kelas-micro-credential",
-    text: "Jalur utama COA dari Level 1 sampai 5. Mulai dari kelas WELCOME dan Level 1 yang gratis.",
+    text: "Jalur utama COA dari Level 1 sampai 5. Mulai gratis dari kelas WELCOME dan Level 1 · Agile Mindset.",
     classes: [
       { title: "WELCOME — Welcoming & Introduction", tier: "Gratis" },
       { title: "Level 1 · Agile Mindset", tier: "Gratis" },
@@ -375,7 +375,7 @@ export const classSeries = [
       { title: "Killing Negative Thoughts", tier: "Gratis" },
       { title: "Self-Control & Instant Gratification", tier: "Gratis" },
       { title: "Managing Stress & Handling Resistance", tier: "Gratis" },
-      { title: "Coaching Competency Workshop (Digital Program) — berbasis ICF Core Competencies", tier: "Premium Product" },
+      { title: "Coaching Competency Workshop (Digital Program) — berbasis ICF Core Competencies", tier: "Program Digital" },
     ],
   },
   {

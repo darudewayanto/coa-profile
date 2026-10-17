@@ -12,7 +12,8 @@ import Accreditation from "../components/Accreditation.astro";
 import { u } from "../lib/url";
 import { doodleImg } from "../lib/assets";
 import dutaPoster from "../assets/deck/duta-agility.png";
-import { stats, youthFacts, programs, pillars, levels, wa } from "../data/site";
+import feedShot from "../assets/community/feed.png";
+import { stats, youthFacts, programs, pillars, levels, wa, site } from "../data/site";
 ---
 <Base overlayHeader>
   <!-- HERO: full-bleed duotone crowd, big serif headline with brush word (reference layout) -->
@@ -180,7 +181,33 @@ import { stats, youthFacts, programs, pillars, levels, wa } from "../data/site";
     </div>
   </section>
 
-  <Gallery limit={7} />
+  <!-- BELAJAR AGILE: community platform teaser -->
+  <section class="ba section bg-white">
+    <div class="wrap ba-grid">
+      <div class="ba-body" data-reveal>
+        <span class="eyebrow">Belajar Agile · Komunitas Online</span>
+        <h2 class="h-lg">Lanjut belajar <span class="brush">kapan saja</span>, bareng teman se-Indonesia.</h2>
+        <p class="lead">Kelas Micro-Credential, Agility & Mental Fitness, komunikasi, sampai entrepreneurship — plus diskusi, acara, dan peringkat di komunitas COA.</p>
+        <ul class="ba-list">
+          <li>WELCOME & Level 1 · Agile Mindset</li>
+          <li>Seri Agility & Mental Fitness</li>
+          <li>Seri Youth Communications</li>
+          <li>Diskusi kohort & sertifikat online</li>
+        </ul>
+        <div class="ba-cta">
+          <a class="btn btn-sun ba-big" href={site.communityUrl} target="_blank" rel="noopener">Join Gratis Sekarang <Icon name="arrow-up-right" size={20} /></a>
+          <a class="ba-more" href={u("/belajar-agile")}>Lihat semua kelas →</a>
+        </div>
+      </div>
+      <figure class="ba-shot" data-reveal>
+        <div class="ba-bar" aria-hidden="true"><i></i><i></i><i></i><span>belajaragile.com/coa</span></div>
+        <Image src={feedShot} alt="Feed komunitas Center of Agility di belajaragile.com/coa" widths={[600, 1000, 1400]} sizes="(min-width: 980px) 520px, 92vw" quality={90} />
+        <Doodle kind="star" class="ba-star" color="var(--sun-2)" width={60} />
+      </figure>
+    </div>
+  </section>
+
+  <Gallery limit={6} />
   <PartnerWall />
   <JoinMovement />
 </Base>
@@ -294,6 +321,25 @@ import { stats, youthFacts, programs, pillars, levels, wa } from "../data/site";
   .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .chips li { padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.24); }
   @media (min-width: 900px) { .duta-grid { grid-template-columns: 1.1fr 1fr; gap: 5rem; } }
+
+  /* BELAJAR AGILE */
+  .ba-grid { display: grid; gap: 3rem; align-items: center; }
+  .ba-body { display: grid; gap: 1.2rem; }
+  .ba-list { display: grid; gap: 0.5rem; }
+  .ba-list li { display: flex; gap: 0.6rem; align-items: center; font-weight: 600; }
+  .ba-list li::before { content: "✓"; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #dcf7e8; color: #127a43; font-size: 0.8rem; }
+  .ba-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1.2rem; margin-top: 0.4rem; }
+  .ba-big { padding: 1.1rem 1.9rem; font-size: 1rem; animation: ba-pulse 2.4s ease-in-out infinite; }
+  @keyframes ba-pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255, 183, 3, 0.5); } 60% { box-shadow: 0 0 0 16px rgba(255, 183, 3, 0); } }
+  .ba-more { font-weight: 700; color: var(--violet); border-bottom: 2px solid currentColor; }
+  .ba-shot { position: relative; margin: 0; justify-self: center; width: 100%; max-width: 520px; border-radius: 14px; overflow: visible; background: #fff; box-shadow: 0 40px 80px -40px rgba(74, 31, 216, 0.6), 0 0 0 1px var(--line); transform: rotate(-1.5deg); }
+  .ba-shot :global(img) { width: 100%; height: auto; border-radius: 0 0 14px 14px; }
+  .ba-bar { display: flex; align-items: center; gap: 6px; padding: 0.6rem 0.9rem; background: #eeeaf8; border-radius: 14px 14px 0 0; }
+  .ba-bar i { width: 10px; height: 10px; border-radius: 50%; background: #ff6159; }
+  .ba-bar i:nth-child(2) { background: #ffbd2e; } .ba-bar i:nth-child(3) { background: #28c941; }
+  .ba-bar span { margin-left: 0.6rem; font-size: 0.75rem; color: var(--ink-soft); background: #fff; border-radius: 6px; padding: 0.15rem 0.7rem; }
+  .ba-shot :global(.ba-star) { right: -22px; top: -30px; }
+  @media (min-width: 980px) { .ba-grid { grid-template-columns: 1.05fr 1fr; gap: 5rem; } }
 
   /* PILLARS */
   .pl-head { display: grid; gap: 1rem; margin-bottom: 3rem; }
