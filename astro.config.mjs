@@ -6,7 +6,7 @@ import { defineConfig } from 'astro/config';
 //   Final domain:   SITE_URL=https://centerofagility.id (BASE_PATH unset → "/")
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://centerofagility.id',
+  site: process.env.SITE_URL ?? 'https://coa.belajaragile.com',
   base: process.env.BASE_PATH ?? '/',
   devToolbar: { enabled: false },
 });

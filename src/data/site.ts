@@ -8,8 +8,8 @@ export const site = {
   tagline: "Empowering Agile Young Leaders",
   description:
     "Center of Agility (COA) on Campus — gerakan membangun agility, resiliensi, dan agile mindset generasi muda Indonesia langsung dari kampus. Micro-credential terakreditasi internasional oleh ICF & MyBrain, dipersembahkan oleh HADE.",
-  url: "https://centerofagility.id",
-  // TODO: konfirmasi email & nomor WhatsApp khusus COA. Sementara memakai kontak HADE.
+  url: "https://coa.belajaragile.com",
+  // Nomor WhatsApp COA sama dengan HADE (konfirmasi Daru, 17 Okt 2026). TODO: email khusus COA.
   email: "salam@hijrahcoach.co.id",
   phoneDisplay: "+62 811 1881 877",
   whatsapp: "628111881877",
