@@ -12,9 +12,8 @@ const { title = "Join the <span class='brush'>Movement</span>" } = Astro.props;
   <Doodle kind="spark" class="d2" color="#fff" width={70} />
   <div class="wrap">
     <div class="head" data-reveal>
-      <span class="eyebrow">Bergabung bersama COA</span>
       <h2 class="h-lg" set:html={title} />
-      <p class="lead">Membangun generasi muda yang agile adalah kerja bersama. Pilih peran Anda dalam gerakan ini.</p>
+      <p class="lead">COA bekerja sama dengan kampus, korporasi, dan mahasiswa. Pilih yang sesuai dengan Anda.</p>
     </div>
     <div class="cards">
       {joinMovement.map((j, i) => (

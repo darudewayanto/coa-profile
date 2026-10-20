@@ -14,18 +14,18 @@ const join = site.communityUrl;
 const login = site.communityLoginUrl;
 
 const why = [
-  { icon: "layers", title: "Belajar nggak berhenti di workshop", text: "Lanjutkan materi COA kapan saja — dari HP, di sela kuliah, organisasi, atau magang." },
+  { icon: "layers", title: "Lanjut setelah workshop", text: "Materi COA bisa dilanjutkan online setelah workshop selesai." },
   { icon: "users", title: "Teman seperjuangan se-Indonesia", text: "Ketemu mahasiswa dari kampus partner COA lain, para Duta Agility, dan alumni micro-credential." },
-  { icon: "coach", title: "Dekat dengan para coach", text: "Tanya langsung ke professional agile coach HADE dan dapat feedback untuk proyekmu." },
-  { icon: "heart", title: "Jaga mental tetap fit", text: "Kelas mental fitness, anti-fragile, dan killing negative thoughts — gratis untuk anggota." },
-  { icon: "certificate", title: "Sertifikat yang bisa dicek", text: "Selesaikan kelas, dapatkan sertifikat dengan link verifikasi online — modal CV dan LinkedIn." },
+  { icon: "coach", title: "Dekat dengan para coach", text: "Diskusi dengan professional agile coach HADE di komunitas." },
+  { icon: "heart", title: "Jaga mental tetap fit", text: "Kelas mental fitness, anti-fragile, dan killing negative thoughts, gratis untuk anggota." },
+  { icon: "certificate", title: "Sertifikat yang bisa dicek", text: "Selesaikan kelas, dapatkan sertifikat dengan link verifikasi online." },
   { icon: "bolt", title: "Siap kerja & berwirausaha", text: "Bekal komunikasi, presentasi, sampai bikin pitch deck untuk startup pertamamu." },
 ];
 
 const features = [
   { icon: "chat", title: "Komunitas", text: "Diskusi, polling, dan berbagi cerita dengan sesama anggota." },
-  { icon: "layers", title: "Kelas", text: "Modul demi modul dengan progres belajar — banyak yang gratis." },
-  { icon: "calendar", title: "Acara", text: "Webinar, sesi coaching, dan event kampus — RSVP sekali klik." },
+  { icon: "layers", title: "Kelas", text: "Modul demi modul dengan progres belajar. Banyak yang gratis." },
+  { icon: "calendar", title: "Acara", text: "Webinar, sesi coaching, dan event kampus." },
   { icon: "users", title: "Anggota & Pesan", text: "Cari teman satu minat dan kirim pesan langsung." },
   { icon: "award", title: "Peringkat", text: "Kumpulkan poin dari kontribusimu, naik level, dan masuk leaderboard." },
   { icon: "certificate", title: "Sertifikat", text: "Bukti belajar yang bisa diverifikasi siapa saja." },
@@ -34,7 +34,7 @@ const features = [
 const steps = [
   { title: "Buka komunitas COA", text: "Klik Gabung, kamu akan diarahkan ke belajaragile.com/coa." },
   { title: "Daftar atau masuk", text: "Pakai email kampus/pribadi, atau lanjut dengan Google. Sudah punya akun? Langsung masuk." },
-  { title: "Mulai dari WELCOME", text: "Tonton kelas WELCOME, lanjut Level 1 · Agile Mindset — keduanya gratis." },
+  { title: "Mulai dari WELCOME", text: "Tonton kelas WELCOME, lanjut Level 1 · Agile Mindset. Keduanya gratis." },
 ];
 
 ---
@@ -47,12 +47,12 @@ const steps = [
       <div class="copy">
         <span class="eyebrow">COA Community Platform</span>
         <h1 class="h-xl">Belajar agile, <span class="brush">bareng</span> teman seperjuangan.</h1>
-        <p class="lead">Ruang belajar online Center of Agility untuk mahasiswa dan anak muda: kelas micro-credential, mental fitness, komunikasi, sampai entrepreneurship — plus komunitas yang saling dukung.</p>
+        <p class="lead">Ruang belajar online Center of Agility untuk mahasiswa dan anak muda: kelas micro-credential, mental fitness, komunikasi, sampai entrepreneurship, plus komunitas yang saling dukung.</p>
         <div class="btns">
           <a class="btn btn-sun btn-big pulse" href={join} target="_blank" rel="noopener">Join Gratis Sekarang <Icon name="arrow-up-right" size={20} /></a>
           <a class="btn btn-ghost" href={login} target="_blank" rel="noopener">Masuk</a>
         </div>
-        <p class="hand note">100% gratis · daftar 1 menit · belajaragile.com/coa ✦</p>
+        <p class="hand note">100% gratis · belajaragile.com/coa ✦</p>
       </div>
       <figure class="shot tilt">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span>belajaragile.com/coa</span></div>
@@ -66,9 +66,8 @@ const steps = [
   <section class="section bg-cream">
     <div class="wrap">
       <div class="head" data-reveal>
-        <span class="eyebrow">Kenapa gabung</span>
-        <h2 class="h-lg">Tumbuh lebih cepat kalau <span class="brush pink">bareng-bareng</span>.</h2>
-        <p class="lead">Workshop COA di kampus menyalakan apinya — komunitas yang menjaganya tetap menyala sampai kamu lulus dan masuk dunia kerja.</p>
+        <h2 class="h-lg">Lanjut belajar <span class="brush pink">setelah workshop</span>.</h2>
+        <p class="lead">Workshop COA di kampus berlangsung beberapa jam. Di komunitas Belajar Agile kamu bisa lanjut belajar, berdiskusi, dan ikut acara sampai lulus.</p>
       </div>
       <ul class="why">
         {why.map((w, i) => (
@@ -88,7 +87,7 @@ const steps = [
       <div class="head" data-reveal>
         <span class="eyebrow">Kelas di platform</span>
         <h2 class="h-lg">Pilih <span class="brush">jalur belajarmu</span></h2>
-        <p class="lead">Mulai dari kelas gratis — WELCOME, Level 1 Agile Mindset, Mental Fitness, dan Communications.</p>
+        <p class="lead">Mulai dari kelas gratis: WELCOME, Level 1 Agile Mindset, Mental Fitness, dan Communications.</p>
       </div>
 
       {classSeries.map((s, i) => (
@@ -121,8 +120,7 @@ const steps = [
     <Sketch name="jumpers" class="jump" color="rgba(255,255,255,.18)" width={300} />
     <div class="wrap">
       <div class="head" data-reveal>
-        <span class="eyebrow">Ada apa di dalamnya</span>
-        <h2 class="h-lg">Satu tempat untuk belajar, ngobrol, dan naik level.</h2>
+        <h2 class="h-lg">Isi komunitas Belajar Agile</h2>
       </div>
       <ul class="feat">
         {features.map((f, i) => (
@@ -140,8 +138,7 @@ const steps = [
   <section class="section bg-white">
     <div class="wrap">
       <div class="head center-head" data-reveal>
-        <span class="eyebrow">Cara bergabung</span>
-        <h2 class="h-lg">Tiga langkah, <span class="brush">langsung mulai</span>.</h2>
+        <h2 class="h-lg">Cara <span class="brush">bergabung</span></h2>
       </div>
       <ol class="steps">
         {steps.map((s, i) => (

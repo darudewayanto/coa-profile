@@ -15,11 +15,11 @@ import { programs, pillars, dutaAgility, wa } from "../data/site";
 const photos = ["dsc05857", "dsc01514", "dsc02053", "dsc05736"];
 const tones = ["violet", "sun", "pink", "violet"] as const;
 ---
-<Base title="Program" description="Empat program Center of Agility: Agile Seminar, Workshop & 1on1 Coaching; Agile Coaching Certification; Agile Research Center; dan Agile Talent Center — plus signature program Duta Agility.">
+<Base title="Program" description="Empat program Center of Agility: Agile Seminar, Workshop & 1on1 Coaching; Agile Coaching Certification; Agile Research Center; dan Agile Talent Center, plus signature program Duta Agility.">
   <PageHero
     eyebrow="Program & Activities"
-    title="Program yang <span class='brush'>menggerakkan</span> kampus"
-    lead="Dari workshop pertama sampai talenta siap kerja: empat program COA saling menyambung untuk mahasiswa, dosen, peneliti, dan industri."
+    title="Program <span class='brush'>COA</span> di kampus"
+    lead="Empat program COA untuk mahasiswa, dosen, peneliti, dan industri, mulai dari workshop sampai sertifikasi micro-credential."
     photo="dsc00506"
     alt="Mahasiswa dan dosen berfoto bersama di acara COA"
     tone="violet"
@@ -28,8 +28,7 @@ const tones = ["violet", "sun", "pink", "violet"] as const;
   <section class="pillars section bg-cream">
     <div class="wrap pl">
       <div data-reveal>
-        <span class="eyebrow">3 Program Pillar</span>
-        <h2 class="h-md">Semua program berdiri di atas tiga pilar.</h2>
+        <h2 class="h-md">Tiga pilar program COA</h2>
       </div>
       <ul class="pl-list">
         {pillars.map((p) => (
@@ -68,7 +67,7 @@ const tones = ["violet", "sun", "pink", "violet"] as const;
       <div class="duta-head" data-reveal>
         <span class="eyebrow">Signature Program</span>
         <h2 class="h-lg">Duta <span class="brush">Agility</span></h2>
-        <p class="lead">Program kepemimpinan untuk mahasiswa terpilih: belajar, berproyek, melayani, lalu berkompetisi — dari tingkat kampus, regional, hingga nasional.</p>
+        <p class="lead">Signature program COA di kampus: active workshop, project simulation, social humanity project, leader’s experience development, micro-credential, dan kompetisi tingkat kampus, regional, dan nasional.</p>
       </div>
       <div class="duta-grid">
         <figure data-reveal><Image src={dutaPoster} alt="Welcome to Duta Agility" widths={[600, 1200]} sizes="(min-width: 900px) 50vw, 100vw" quality={92} /></figure>
@@ -82,7 +81,7 @@ const tones = ["violet", "sun", "pink", "violet"] as const;
         <figure><Image src={certPoster} alt="Agile Certification — International Certification & Micro-Credential" widths={[600, 1158]} sizes="(min-width: 900px) 40vw, 100vw" quality={92} /></figure>
         <div>
           <h3 class="h-sm">Lulus dengan micro-credential berstandar internasional</h3>
-          <p>Setiap Duta Agility menempuh jalur Micro-Credential COA Level 1–5 — terakreditasi internasional oleh ICF & MyBrain.</p>
+          <p>Setiap Duta Agility menempuh jalur Micro-Credential COA Level 1–5, terakreditasi internasional oleh ICF & MyBrain.</p>
           <a class="btn btn-sun" href={u("/micro-credential")}>Lihat Kurikulum</a>
         </div>
       </div>

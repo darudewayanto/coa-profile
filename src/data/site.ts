@@ -7,7 +7,7 @@ export const site = {
   short: "COA",
   tagline: "Empowering Agile Young Leaders",
   description:
-    "Center of Agility (COA) on Campus — gerakan membangun agility, resiliensi, dan agile mindset generasi muda Indonesia langsung dari kampus. Micro-credential terakreditasi internasional oleh ICF & MyBrain, dipersembahkan oleh HADE.",
+    "Center of Agility (COA) on Campus, gerakan membangun agility, resiliensi, dan agile mindset generasi muda Indonesia langsung dari kampus. Micro-credential terakreditasi internasional oleh ICF & MyBrain, dipersembahkan oleh HADE.",
   url: "https://coa.belajaragile.com",
   // Nomor WhatsApp COA sama dengan HADE (konfirmasi Daru, 17 Okt 2026). TODO: email khusus COA.
   email: "salam@hijrahcoach.co.id",
@@ -68,7 +68,7 @@ export const youthFacts = {
 
 // "Kami hadir dan berperan serta aktif memberikan kontribusi kepada remaja dan generasi muda Indonesia lewat kampus."
 export const mission = [
-  "Membangun agility dan resiliensi remaja dan generasi muda — calon pemimpin — sejak dari kampus, sebagai mahasiswa.",
+  "Membangun agility dan resiliensi remaja dan generasi muda, calon pemimpin, sejak dari kampus, sebagai mahasiswa.",
   "Mempersiapkan daya juang mahasiswa menuju dunia entrepreneurship dan korporasi.",
   "Membantu dosen dan pengajar dengan kemampuan dan kompetensi agile coaching.",
   "Melibatkan dunia akademisi dalam riset dan pengembangan ilmu agile coaching & agile transformation.",
@@ -92,7 +92,7 @@ export const pillars = [
     key: "leveraging",
     name: "Leveraging",
     icon: "icon-04-x45",
-    text: "Menjadi “daya ungkit” bonus demografi — mengembangkan potensi mahasiswa dan generasi muda dengan langkah konkret menuju Indonesia Emas.",
+    text: "Menjadi “daya ungkit” bonus demografi dengan mengembangkan potensi mahasiswa dan generasi muda melalui langkah konkret menuju Indonesia Emas.",
   },
 ];
 
@@ -101,7 +101,7 @@ export const programs = [
     no: 1,
     slug: "seminar-workshop-coaching",
     name: "Agile Seminar, Workshop & 1on1 Coaching",
-    short: "Pembekalan agile, agility, dan agile mindset untuk mahasiswa — dari workshop sampai sertifikasi micro-credential.",
+    short: "Pembekalan agile, agility, dan agile mindset untuk mahasiswa, dari workshop sampai sertifikasi micro-credential.",
     points: [
       "Pembekalan ilmu agile, agility, dan agile mindset untuk mahasiswa dan generasi muda, mulai dari workshop sampai sertifikasi (micro-credential).",
       "Program “Duta Agility” mahasiswa di kampus.",
@@ -152,7 +152,7 @@ export const dutaAgility = {
     "Social Humanity Project",
     "Leader’s Experience Development",
     "Micro-Credential",
-    "Competition — kampus, regional, nasional",
+    "Competition (kampus, regional, nasional)",
   ],
 };
 
@@ -161,7 +161,7 @@ export const levels = [
   {
     level: 1,
     name: "Agile Mindset",
-    tagline: "Mengenal agile dari dalam diri: being sebelum doing.",
+    tagline: "Why & what agile, being & doing, anti-fragile, ANTs, purpose of life.",
     chapters: [
       { title: "About Agile & Agile Mindset", topics: ["Why Agile", "What is Agile", "Agile Mindset", "Being & Doing"] },
       { title: "Anti-Fragile", topics: ["Paradox of Happiness", "Fake Happiness", "Fragile & Robust", "Anti-Fragile", "Coaching for Anti-Fragility"] },
@@ -175,7 +175,7 @@ export const levels = [
   {
     level: 2,
     name: "Agility & Resilience",
-    tagline: "Berani berubah, berani gagal, bangkit lebih cepat.",
+    tagline: "Change formula, self-awareness, double loop learning, mistake quota.",
     chapters: [
       { title: "Change Formula", topics: ["About Change Formula", "Exercise"] },
       { title: "Self-Awareness & Self-Management", topics: ["About Self-Awareness & Self-Management", "Exercise"] },
@@ -189,7 +189,7 @@ export const levels = [
   {
     level: 3,
     name: "Agile Competency",
-    tagline: "Neuro-dominance, komunikasi, design thinking, creative thinking.",
+    tagline: "Neuro-dominance, komunikasi, design thinking, creative thinking, leading agility.",
     chapters: [
       { title: "Neuro-Dominance for Agility", topics: ["About Neuro-Dominance", "Agility with Neuro-Dominance"] },
       { title: "Communication in Agile", topics: ["Developing Communication in Agile", "Thomas-Kilmann Conflict Management"] },
@@ -203,7 +203,7 @@ export const levels = [
   {
     level: 4,
     name: "Collaboration & Agile Team",
-    tagline: "Membangun tim yang aman, sehat, dan saling menumbuhkan.",
+    tagline: "Building container, handling resistance, team development, agile coaching.",
     chapters: [
       { title: "Building Container", topics: ["What is Container in Agile", "How to Build Container"] },
       { title: "Handling Resistance", topics: ["Resistance in Agile", "Handling Resistance"] },
@@ -217,7 +217,7 @@ export const levels = [
   {
     level: 5,
     name: "Building Agile Culture",
-    tagline: "Dari individu ke organisasi: merancang dan menggerakkan budaya agile.",
+    tagline: "Agile culture model, group & team coaching, agile culture transformation.",
     chapters: [
       { title: "Agile Culture Fundamental", topics: ["Why Agile Culture", "Setting Fundamental on Agile Culture"] },
       { title: "Designing Agile Culture", topics: ["Agile Culture Model", "Choosing the Right Model & Framework"] },
@@ -258,7 +258,7 @@ export const observation = [
     category: "Game Changer",
     items: [
       { name: "Red zone", text: "Cenderung berpersepsi negatif, bahkan memengaruhi orang lain ke arah negatif." },
-      { name: "Yellow zone", text: "Di pertengahan — bisa terpengaruh ke arah negatif atau positif." },
+      { name: "Yellow zone", text: "Di pertengahan, bisa terpengaruh ke arah negatif atau positif." },
       { name: "Green zone", text: "Cenderung positif, dan menularkan sikap positif ke orang lain." },
     ],
   },
@@ -275,7 +275,7 @@ export const partnership = [
   {
     name: "Space & Signage",
     points: [
-      "Universitas menyediakan ruangan dedicated sebagai Center of Agility — untuk sesi 1on1 dan persiapan program para coach.",
+      "Universitas menyediakan ruangan dedicated sebagai Center of Agility untuk sesi 1on1 dan persiapan program para coach.",
       "Universitas mengizinkan pemasangan signage COA di area center.",
     ],
   },
@@ -283,7 +283,7 @@ export const partnership = [
     name: "Development",
     points: [
       "Universitas aktif mendukung, mengadakan, mempromosikan, dan mempublikasikan seluruh program COA.",
-      "Universitas dan HADE bersama mengembangkan usaha melalui COA — sertifikasi dan program lain untuk internal kampus, publik, dan korporasi.",
+      "Universitas dan HADE bersama mengembangkan usaha melalui COA: sertifikasi dan program lain untuk internal kampus, publik, dan korporasi.",
     ],
   },
 ];
@@ -297,7 +297,7 @@ export const timeline = [
 
 export const joinMovement = [
   { who: "Universitas", icon: "icon-11-x103", topic: "campus" as WaTopic, text: "Bergabung dan bekerja sama membangun Center of Agility on Campus.", cta: "Ajukan Kemitraan" },
-  { who: "Korporasi", icon: "icon-11-x104", topic: "corporate" as WaTopic, text: "Menjadi partner ekosistem agility generasi muda — dalam pembelajaran, pendampingan, dan talent.", cta: "Jadi Partner" },
+  { who: "Korporasi", icon: "icon-11-x104", topic: "corporate" as WaTopic, text: "Menjadi partner ekosistem agility generasi muda dalam pembelajaran, pendampingan, dan talent.", cta: "Jadi Partner" },
   { who: "Komunitas", icon: "icon-11-x105", topic: "community" as WaTopic, text: "Berkolaborasi menyelenggarakan program dan kampanye media sosial untuk generasi muda.", cta: "Ajak Kolaborasi" },
 ];
 
@@ -339,7 +339,7 @@ export const hade = {
     { value: "180", label: "Associate coaches" },
     { value: "1.800+", label: "HADE graduate coaches" },
   ],
-  presence: "Indonesia, Hong Kong, Qatar & Australia — dengan subsidiary dan strategic partnership di USA, UK, Qatar, Saudi Arabia, UEA, Kuwait, Oman, Bahrain, Malaysia, dan Singapura. HADE Middle-East berkantor pusat di Bahrain.",
+  presence: "Indonesia, Hong Kong, Qatar & Australia, dengan subsidiary dan strategic partnership di USA, UK, Qatar, Saudi Arabia, UEA, Kuwait, Oman, Bahrain, Malaysia, dan Singapura. HADE Middle-East berkantor pusat di Bahrain.",
   awards: [
     "Top Business Award 2016",
     "ASEAN Top Business Award 2017",
@@ -375,13 +375,13 @@ export const classSeries = [
       { title: "Killing Negative Thoughts", tier: "Gratis" },
       { title: "Self-Control & Instant Gratification", tier: "Gratis" },
       { title: "Managing Stress & Handling Resistance", tier: "Gratis" },
-      { title: "Coaching Competency Workshop (Digital Program) — berbasis ICF Core Competencies", tier: "Program Digital" },
+      { title: "Coaching Competency Workshop (Digital Program) berbasis ICF Core Competencies", tier: "Program Digital" },
     ],
   },
   {
     name: "Youth Communications & Entrepreneurship Series",
     shot: "kelas-komunikasi-bisnis",
-    text: "Bekal presentasi, komunikasi, dan memulai usaha — untuk organisasi kampus, magang, sampai startup pertamamu.",
+    text: "Bekal presentasi, komunikasi, dan memulai usaha, untuk organisasi kampus, magang, sampai startup pertamamu.",
     classes: [
       { title: "Mastering Communication & Influencing with Applied-Neuroscience", tier: "Gratis" },
       { title: "High Impact & Effective Engagement Presentation", tier: "Gratis" },
