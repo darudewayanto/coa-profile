@@ -33,7 +33,7 @@ const { title = "Join the <span class='brush'>Movement</span>" } = Astro.props;
   .head { text-align: center; display: grid; justify-items: center; gap: 1rem; margin-bottom: 3rem; }
   .cards { display: grid; gap: 1.2rem; }
   .card {
-    display: grid; gap: 0.9rem; align-content: start;
+    display: flex; flex-direction: column; gap: 0.9rem;
     padding: 2rem 1.6rem;
     border-radius: 18px;
     background: rgba(23, 10, 74, 0.32);
@@ -41,7 +41,7 @@ const { title = "Join the <span class='brush'>Movement</span>" } = Astro.props;
     backdrop-filter: blur(6px);
   }
   .card p { color: rgba(255, 255, 255, 0.82); flex: 1; }
-  .card .btn { justify-self: start; margin-top: 0.4rem; }
+  .card .btn { align-self: flex-start; margin-top: 0.4rem; }
   .card :global(.ic) { width: 64px; height: 64px; object-fit: contain; }
   .join :global(.d1) { left: -40px; top: 40px; opacity: 0.8; }
   .join :global(.d2) { right: 6%; bottom: 40px; }
