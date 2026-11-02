@@ -5,7 +5,6 @@ import PageHero from "../components/PageHero.astro";
 import Doodle from "../components/Doodle.astro";
 import Sketch from "../components/Sketch.astro";
 import Logo from "../components/Logo.astro";
-import Accreditation from "../components/Accreditation.astro";
 import JoinMovement from "../components/JoinMovement.astro";
 import { accredImg } from "../lib/assets";
 import hadeLogo from "../assets/brand/hade-navy.png";
@@ -55,10 +54,13 @@ import { hade, pillars, site } from "../data/site";
       <p class="presence" data-reveal>{hade.presence}</p>
       <div class="cred" data-reveal>
         <p class="hand">Agile coaching accredited certification holder from 3 major organizations</p>
-        <div class="badges">
-          {[["ice-ac", "ICAgile Certified Expert in Agile Coaching (ICE-AC)"], ["mcc", "ICF Master Certified Coach (MCC)"], ["mind-master", "MyBrain MiND Master Practitioner"], ["icp-acc", "ICAgile ICP-ACC"], ["icf-level1", "ICF Level 1 Accredited"]].map(([f, alt]) => (
-            <Image src={accredImg[f]} alt={alt} height={92} densities={[1, 2]} />
-          ))}
+        <!-- Badge artwork from Coach Daru (same files as the Hijrah Coach site), kept as lossless PNG. -->
+        <div class="strip">
+          <Image src={accredImg["accred-program"]} alt="Accredited Program: ICF Level 1, ICP-ACC, MiND Practitioner Certification" widths={[481]} sizes="(min-width: 960px) 430px, 100vw" format="png" />
+          <Image src={accredImg["accred-master"]} alt="Master Credential: Master Certified Coach, ICE-AC, MyBrain Master Practitioner" widths={[483]} sizes="(min-width: 960px) 430px, 100vw" format="png" />
+        </div>
+        <div class="orgs">
+          <Image src={accredImg["accred-orgs"]} alt="Accredited by International Coaching Federation, ICAgile, and MyBrain" widths={[1015]} sizes="(min-width: 760px) 620px, 100vw" format="png" />
         </div>
       </div>
     </div>
@@ -80,14 +82,6 @@ import { hade, pillars, site } from "../data/site";
       </ul>
       <p class="clients"><span>Pengalaman korporasi HADE:</span> {hade.clients.join(" · ")}</p>
       <a class="btn btn-sun" href={site.hadeUrl} target="_blank" rel="noopener">Kenali HADE</a>
-    </div>
-  </section>
-
-  <section class="acc section bg-paper">
-    <div class="wrap acc-inner" data-reveal>
-      <span class="eyebrow">Akreditasi & Ekosistem</span>
-      <h2 class="h-md">Standar internasional, untuk mahasiswa Indonesia.</h2>
-      <Accreditation />
     </div>
   </section>
 
@@ -119,8 +113,12 @@ import { hade, pillars, site } from "../data/site";
   .presence { margin: 2rem auto 0; max-width: 70ch; text-align: center; color: var(--ink-soft); }
   .cred { margin-top: 3rem; display: grid; gap: 1.4rem; justify-items: center; text-align: center; }
   .cred .hand { font-size: 1.6rem; color: var(--magenta); }
-  .badges { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.2rem 2rem; }
-  .badges :global(img) { height: 92px; width: auto; }
+  /* The two badge rows sit side by side on desktop and stack on small screens, never wider than their 480px source. */
+  .strip { display: grid; grid-template-columns: 1fr; justify-items: center; gap: 1.5rem; width: 100%; max-width: 900px; }
+  @media (min-width: 760px) { .strip { grid-template-columns: 1fr 1fr; gap: 2.5rem; } }
+  .strip :global(img) { width: 100%; max-width: 430px; height: auto; }
+  .orgs { width: 100%; max-width: 620px; margin-top: 0.8rem; }
+  .orgs :global(img) { width: 100%; height: auto; }
   @media (min-width: 900px) { .h-stats { grid-template-columns: repeat(4, 1fr); } }
 
   .founder { display: grid; }
@@ -137,5 +135,4 @@ import { hade, pillars, site } from "../data/site";
   .f-body .btn { justify-self: start; }
   @media (min-width: 960px) { .founder { grid-template-columns: 0.85fr 1fr; min-height: 720px; } .f-photo { min-height: auto; } }
 
-  .acc-inner { display: grid; gap: 1.4rem; justify-items: center; text-align: center; }
 </style>
