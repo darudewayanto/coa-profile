@@ -55,7 +55,9 @@ const tones = ["violet", "sun", "pink", "violet"] as const;
         <ul class="ticks">
           {p.points.map((pt) => <li><Icon name="check" size={18} /> <span>{pt}</span></li>)}
         </ul>
-        <a class="btn btn-violet" href={wa(p.cta)} target="_blank" rel="noopener">Diskusikan Program Ini <Icon name="arrow-right" size={18} /></a>
+        {p.slug === "seminar-workshop-coaching"
+          ? <a class="btn btn-violet" href={u("/micro-credential")}>Micro-Credential <Icon name="arrow-right" size={18} /></a>
+          : <a class="btn btn-violet" href={wa(p.cta)} target="_blank" rel="noopener">Diskusikan Program Ini <Icon name="arrow-right" size={18} /></a>}
       </div>
     </section>
   ))}
