@@ -1,18 +1,22 @@
 ---
-// Official micro-credential accreditation artwork (supplied by Daru, 935×690). Used as-is, never redrawn.
-// Shown at max 460px CSS width so the source covers 2× retina screens, and served as lossless PNG.
+// Official accreditation logos (ICF CCE badge + MyBrain MiND, supplied by Daru). Used as-is, never redrawn.
+// Served as lossless PNG at 2× their CSS size for retina screens.
 import { Image } from "astro:assets";
-import art from "../assets/accred/mc-accreditation.png";
+import cce from "../assets/accred/cce.png";
+import mind from "../assets/accred/mind.png";
 ---
-<Image
-  src={art}
-  alt="ICF CCE dan MyBrain MiND — Program Compliance & Soon To Be Accredited by ICF, ICAgile, dan MyBrain"
-  widths={[460, 935]}
-  sizes="(min-width: 520px) 460px, 88vw"
-  format="png"
-  class="mc-accred"
-/>
+<figure class="mc-accred">
+  <div class="logos">
+    <Image src={cce} alt="ICF CCE — ICF Continuing Coach Education" widths={[200, 400]} sizes="(min-width: 520px) 200px, 38vw" format="png" class="cce" />
+    <Image src={mind} alt="MyBrain MiND" widths={[300, 600]} sizes="(min-width: 520px) 300px, 50vw" format="png" class="mind" />
+  </div>
+  <figcaption>Accredited by ICF & MyBrain</figcaption>
+</figure>
 
 <style>
-  .mc-accred { width: min(460px, 88vw); height: auto; margin-inline: auto; }
+  .mc-accred { margin: 0 auto; display: grid; justify-items: center; gap: 1rem; }
+  .logos { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 4vw, 2rem); }
+  .cce { width: min(200px, 38vw); height: auto; }
+  .mind { width: min(300px, 50vw); height: auto; }
+  figcaption { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
 </style>
