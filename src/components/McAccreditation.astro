@@ -1,22 +1,23 @@
 ---
-// Official accreditation logos (ICF CCE badge + MyBrain MiND, supplied by Daru). Used as-is, never redrawn.
-// Served as lossless PNG at 2× their CSS size for retina screens.
+// Accreditation pill, same logos and wording as the AHC hero on hijrahcoach-website (MyBrain MiND Accredited + ICF CCE).
+// Logos supplied by Daru, used as-is, served as lossless PNG at 2× their CSS size.
 import { Image } from "astro:assets";
-import cce from "../assets/accred/cce.png";
-import mind from "../assets/accred/mind.png";
+import mind from "../assets/accred/mind-accredited.png";
+import cce from "../assets/accred/icf-cce.png";
 ---
-<figure class="mc-accred">
-  <div class="logos">
-    <Image src={cce} alt="ICF CCE — ICF Continuing Coach Education" widths={[200, 400]} sizes="(min-width: 520px) 200px, 38vw" format="png" class="cce" />
-    <Image src={mind} alt="MyBrain MiND" widths={[300, 600]} sizes="(min-width: 520px) 300px, 50vw" format="png" class="mind" />
-  </div>
-  <figcaption>Accredited by ICF & MyBrain</figcaption>
-</figure>
+<div class="mc-accred">
+  <span class="logos">
+    <Image src={mind} alt="MyBrain MiND Accredited Program" widths={[72, 144]} sizes="72px" format="png" />
+    <Image src={cce} alt="ICF Continuing Coach Education (CCE)" widths={[72, 144]} sizes="72px" format="png" />
+  </span>
+  <p>Program Micro-Credential COA diakreditasi internasional oleh <b>ICF (International Coaching Federation) CCE</b> dan <b>MyBrain MiND Accredited Program</b></p>
+</div>
 
 <style>
-  .mc-accred { margin: 0 auto; display: grid; justify-items: center; gap: 1rem; }
-  .logos { display: flex; align-items: center; justify-content: center; gap: clamp(1rem, 4vw, 2rem); }
-  .cce { width: min(200px, 38vw); height: auto; }
-  .mind { width: min(300px, 50vw); height: auto; }
-  figcaption { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); }
+  .mc-accred { display: flex; align-items: center; gap: 1rem; margin-inline: auto; padding: 0.7rem 1.4rem 0.7rem 0.7rem; border: 1px solid var(--line); border-radius: 999px; background: #fff; text-align: left; max-width: 720px; }
+  .logos { display: flex; gap: 0.5rem; flex: none; }
+  .mc-accred :global(img) { width: 64px; height: 64px; flex: none; object-fit: contain; }
+  .mc-accred p { margin: 0; font-size: 0.92rem; line-height: 1.45; color: var(--ink-soft); }
+  .mc-accred b { color: var(--ink); font-weight: 700; }
+  @media (max-width: 560px) { .mc-accred { flex-direction: column; text-align: center; border-radius: 18px; padding: 1rem; } .mc-accred :global(img) { width: 56px; height: 56px; } }
 </style>
